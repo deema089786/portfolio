@@ -41,12 +41,12 @@ export const ModelGLTF: React.FC<ModelGLTFProps> = (props) => {
       >
         {mesh.name === 'screen' && (
           <>
-            {/*<meshStandardMaterial color="black" />*/}
+            <meshStandardMaterial color="black" />
 
             <meshPhysicalMaterial
               // transparent
-              polygonOffset
-              polygonOffsetFactor={-10}
+              // polygonOffset
+              // polygonOffsetFactor={-10}
               map={texture}
               map-flipY={false}
               map-anisotropy={16}
