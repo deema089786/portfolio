@@ -14,7 +14,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@presento/presento-web-design-system": [
+        "libs/presento-web-design-system/src/index.ts"
+      ],
+      "@presento/presento-web-scenes": [
+        "libs/presento-web-scenes/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

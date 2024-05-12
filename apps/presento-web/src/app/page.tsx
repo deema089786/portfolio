@@ -1,31 +1,6 @@
-import { styled } from '@pigment-css/react';
+import { SceneV1 } from '@presento/presento-web-scenes';
 
-const Button = styled('button')<{
-  size?: 'large' | 'small';
-  color?: 'primary' | 'secondary';
-}>({
-  border: 'none',
-  padding: '0.75rem',
-  // ...other base styles
-  variants: [
-    {
-      props: { size: 'large' },
-      style: { padding: '1rem' },
-    },
-    {
-      props: { size: 'small' },
-      style: { padding: '0.5rem' },
-    },
-    {
-      props: { color: 'primary' },
-      style: { background: 'red' },
-    },
-    {
-      props: { color: 'secondary' },
-      style: { background: 'blue' },
-    },
-  ],
-});
+import { Button } from '@presento/presento-web-design-system';
 
 export default function Index() {
   /*
@@ -42,6 +17,7 @@ export default function Index() {
       <Button color="secondary" size="small">
         Small button
       </Button>
+      <SceneV1 />
     </>
   );
 }

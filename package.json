@@ -10,9 +10,11 @@
     "@nx/jest": "19.0.2",
     "@nx/js": "19.0.2",
     "@nx/next": "^19.0.2",
+    "@nx/react": "19.0.2",
     "@nx/workspace": "19.0.2",
     "@pigment-css/nextjs-plugin": "^0.0.11",
     "@swc-node/register": "~1.9.1",
+    "@swc/cli": "~0.3.12",
     "@swc/core": "~1.5.5",
     "@swc/helpers": "~0.5.11",
     "@testing-library/react": "15.0.7",
@@ -41,9 +43,13 @@
   },
   "dependencies": {
     "@pigment-css/react": "^0.0.11",
+    "@react-spring/three": "^9.7.3",
+    "@react-three/drei": "^9.105.6",
+    "@react-three/fiber": "^8.16.6",
     "next": "14.2.3",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "three": "^0.164.1",
     "tslib": "^2.6.2"
   }
 }
