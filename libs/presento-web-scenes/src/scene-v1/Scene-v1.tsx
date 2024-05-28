@@ -94,8 +94,8 @@ export function Model(props: JSX.IntrinsicElements['group']) {
     <group {...props} dispose={null}>
       <group
         name="Apple_iPhone_14_Pro_Space_Black"
-        position={[0, 0.005, 0]}
-        rotation={[-1.567, -0.051, 0]}
+        position={[0.229, -0.434, -0.138]}
+        rotation={[-1.551, -0.051, 0]}
       >
         <mesh
           name="back_camera_border01"
@@ -371,12 +371,15 @@ export function Model(props: JSX.IntrinsicElements['group']) {
           material={materials['gold.001']}
         />
       </group>
-      <pointLight
-        name="Point"
-        intensity={1}
-        decay={2}
-        position={[-0.326, 0.397, 0]}
-        rotation={[-Math.PI / 2, 0, 0]}
+      <PerspectiveCamera
+        name="x-scene-camera"
+        makeDefault={false}
+        far={1000}
+        near={0.1}
+        fov={10}
+        position={[0.858, 0.751, 1.624]}
+        rotation={[-0.607, 0.412, 0.271]}
+        scale={5}
       />
       <spotLight
         name="Spot"
@@ -384,17 +387,44 @@ export function Model(props: JSX.IntrinsicElements['group']) {
         angle={Math.PI / 8}
         penumbra={0.15}
         decay={2}
-        position={[0, 0.531, 0]}
-        rotation={[-Math.PI / 2, 0, 0]}
+        color="#fff2d1"
+        position={[1.618, 2.194, -0.138]}
+        rotation={[-Math.PI / 2, 0.458, 0]}
+        scale={5}
+        castShadow
+        shadow-mapSize-width={4096} // Increased shadow map resolution
+        shadow-mapSize-height={4096} // Increased shadow map resolution
+        shadow-bias={-0.0001} // Bias to reduce shadow acne
       />
-      <PerspectiveCamera
-        name="x-scene-camera"
-        makeDefault={false}
-        far={1000}
-        near={0.1}
-        fov={28.288}
-        position={[0.092, 0.198, 0.288]}
-        rotation={[-0.607, 0.412, 0.271]}
+      <spotLight
+        name="Spot001"
+        intensity={0.5}
+        angle={Math.PI / 8}
+        penumbra={0.15}
+        decay={2}
+        color="#f2f6ff"
+        position={[-0.763, 1.331, -0.138]}
+        rotation={[-Math.PI / 2, -0.419, 0]}
+        scale={5}
+        castShadow
+        shadow-mapSize-width={4096} // Increased shadow map resolution
+        shadow-mapSize-height={4096} // Increased shadow map resolution
+        shadow-bias={-0.0001} // Bias to reduce shadow acne
+      />
+      <spotLight
+        name="Spot002"
+        intensity={25}
+        angle={Math.PI / 8}
+        penumbra={0.15}
+        decay={2}
+        color="#fff2d1"
+        position={[13.715, 24.835, -0.138]}
+        rotation={[-Math.PI / 2, 0.458, 0]}
+        scale={5}
+        castShadow
+        shadow-mapSize-width={4096} // Increased shadow map resolution
+        shadow-mapSize-height={4096} // Increased shadow map resolution
+        shadow-bias={-0.0001} // Bias to reduce shadow acne
       />
       <mesh
         name="Plane"
@@ -402,6 +432,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
         receiveShadow
         geometry={nodes.Plane.geometry}
         material={materials['Material.024']}
+        position={[0.229, -0.46, -0.138]}
       />
       <mesh
         name="Plane001"
@@ -409,7 +440,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
         receiveShadow
         geometry={nodes.Plane001.geometry}
         material={materials['Material.023']}
-        position={[0, -0.256, 0]}
+        position={[0.229, -1.741, -0.138]}
       />
       <mesh
         name="Plane002"
@@ -417,7 +448,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
         receiveShadow
         geometry={nodes.Plane002.geometry}
         material={materials['Material.025']}
-        position={[-0.149, 0.023, -0.006]}
+        position={[-0.518, -0.164, -0.167]}
       />
       <mesh
         name="Plane003"
@@ -425,7 +456,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
         receiveShadow
         geometry={nodes.Plane003.geometry}
         material={materials.metal_blue}
-        position={[-0.075, 0.023, -0.006]}
+        position={[-0.145, -0.343, -0.167]}
       />
     </group>
   );

@@ -6,7 +6,7 @@
     "../../.eslintrc.json",
     "../../.eslintrc.base.json"
   ],
-  "ignorePatterns": ["!**/*", ".next/**/*"],
+  "ignorePatterns": ["!**/*", ".next/**/*", "storybook-static"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],

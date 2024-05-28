@@ -1,6 +1,6 @@
 import { useLoader, useThree } from '@react-three/fiber';
 import React, { useEffect, useState } from 'react';
-import { WebGLPathTracer } from 'three-gpu-pathtracer';
+import { WebGLPathTracer, BlurredEnvMapGenerator } from 'three-gpu-pathtracer';
 import { OrbitControls } from '@react-three/drei';
 import { EquirectangularReflectionMapping, PerspectiveCamera } from 'three';
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
@@ -15,9 +15,11 @@ export const usePathTracer = () => {
 
   useEffect(() => {
     envTexture.mapping = EquirectangularReflectionMapping;
-    scene.environment = envTexture;
+    const generator = new BlurredEnvMapGenerator(renderer);
+    const blurredEnvTexture = generator.generate(envTexture, 0.05);
+    scene.environment = blurredEnvTexture;
     scene.environmentIntensity = 5;
-  }, [envTexture, scene]);
+  }, [envTexture, renderer, scene]);
 
   // Initiate WebGLPathTracer
   useEffect(() => {

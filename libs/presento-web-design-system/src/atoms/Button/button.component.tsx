@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from 'react';
 import { styled } from '@pigment-css/react';
 
 export type ButtonProps = {
-  size?: 'large' | 'small';
+  size?: 'large' | 'small' | 'medium';
   color?: 'primary' | 'secondary';
 };
 
@@ -17,6 +17,10 @@ const ButtonStyled = styled('button')<{
     {
       props: { size: 'large' },
       style: { padding: '1rem' },
+    },
+    {
+      props: { size: 'medium' },
+      style: { padding: '0.8rem' },
     },
     {
       props: { size: 'small' },
