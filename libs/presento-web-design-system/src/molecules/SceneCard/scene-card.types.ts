@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const SceneCard: React.FC = () => {
+export const SceneCardComponent: React.FC = () => {
   return <div> scene card</div>;
 };

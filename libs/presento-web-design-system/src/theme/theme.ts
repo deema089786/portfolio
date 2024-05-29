@@ -1,3 +1,5 @@
+import { string } from 'three/examples/jsm/nodes/shadernode/ShaderNode';
+
 export type Theme = {
   color: {
     primary: string;
@@ -9,6 +11,21 @@ export type Theme = {
   typography: {
     fontFamily: string;
   };
+};
+
+export type ThemeSpacingUnitProp = string | number;
+
+export type ThemeSpacingProps = {
+  p?: number | string;
+  pt?: number | string;
+  pb?: number | string;
+  pl?: number | string;
+  pr?: number | string;
+  m?: number | string;
+  mt?: number | string;
+  mb?: number | string;
+  ml?: number | string;
+  mr?: number | string;
 };
 
 export const defaultTheme: Theme = {

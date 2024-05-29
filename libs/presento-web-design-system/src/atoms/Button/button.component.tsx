@@ -1,10 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import { styled } from '@pigment-css/react';
 
-export type ButtonProps = {
-  size?: 'large' | 'small' | 'medium';
-  color?: 'primary' | 'secondary';
-};
+import { ButtonProps } from './button.types';
 
 const ButtonStyled = styled('button')<{
   size?: ButtonProps['size'];
