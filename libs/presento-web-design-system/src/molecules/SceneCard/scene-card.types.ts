@@ -1,5 +1,6 @@
-import React from 'react';
-
-export const SceneCardComponent: React.FC = () => {
-  return <div> scene card</div>;
+export type SceneCardProps = {
+  imageSrc: string;
+  title: string;
+  description: string;
+  tags: { id: string; label: string }[];
 };

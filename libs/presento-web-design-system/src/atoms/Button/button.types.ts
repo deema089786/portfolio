@@ -3,4 +3,5 @@ export type ButtonPropsColor = 'primary' | 'secondary';
 export type ButtonProps = {
   size?: ButtonPropsSize;
   color?: ButtonPropsColor;
+  className?: string;
 };

@@ -18,9 +18,12 @@ export const Stack: React.FC<PropsWithChildren<StackProps>> = (props) => {
     direction = 'column',
     align = 'stretch',
     justify = 'flex-start',
+    className,
   } = props;
+
   return (
     <DivStyled
+      className={className}
       style={
         {
           '--spacing': spacing,

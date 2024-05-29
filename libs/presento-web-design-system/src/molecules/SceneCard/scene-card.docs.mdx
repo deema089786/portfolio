@@ -1,5 +1,9 @@
-import React from 'react';
+import { Source, Meta, Story } from '@storybook/blocks';
+import * as SceneCardStories from './scene-card.stories';
 
-export const SceneCardComponent: React.FC = () => {
-  return <div> scene card</div>;
-};
+<Meta of={SceneCardStories} />
+
+# Scene Card
+
+<Story of={SceneCardStories.SceneCardBase} />
+<Source of={SceneCardStories.SceneCardBase} />

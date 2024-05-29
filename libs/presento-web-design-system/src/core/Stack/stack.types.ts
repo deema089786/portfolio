@@ -5,4 +5,5 @@ export type StackProps = {
   direction?: Property.FlexDirection | undefined;
   align?: Property.AlignItems | undefined;
   justify?: Property.JustifyContent | undefined;
+  className?: string;
 };

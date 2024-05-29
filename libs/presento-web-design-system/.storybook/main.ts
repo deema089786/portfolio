@@ -8,6 +8,7 @@ import { defaultTheme } from '../src';
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx|mdx)', '../src/**/*.docs.mdx'],
   addons: ['@storybook/addon-essentials'],
+  staticDirs: ['../static'],
   framework: {
     name: '@storybook/react-vite',
     options: {},
