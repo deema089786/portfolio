@@ -3,7 +3,18 @@ import { styled } from '@pigment-css/react';
 
 import { StackProps } from './stack.types';
 
-const DivStyled = styled('div')(({ theme }) => ({
+type DivStyledProps = {
+  spacing: NonNullable<StackProps['spacing']>;
+  direction: NonNullable<StackProps['direction']>;
+  align: NonNullable<StackProps['align']>;
+  justify: NonNullable<StackProps['justify']>;
+};
+
+const DivStyled = styled('div')<DivStyledProps>(({ theme }) => ({
+  '--spacing': (props: DivStyledProps) => props.spacing,
+  '--direction': (props: DivStyledProps) => props.direction,
+  '--align': (props: DivStyledProps) => props.align,
+  '--justify': (props: DivStyledProps) => props.justify,
   display: 'flex',
   gap: `calc(${theme.spacing.unit}px * var(--spacing))`,
   flexDirection: 'var(--direction)',
@@ -23,15 +34,11 @@ export const Stack: React.FC<PropsWithChildren<StackProps>> = (props) => {
 
   return (
     <DivStyled
+      spacing={spacing}
+      direction={direction}
+      align={align}
+      justify={justify}
       className={className}
-      style={
-        {
-          '--spacing': spacing,
-          '--direction': direction,
-          '--align': align,
-          '--justify': justify,
-        } as React.CSSProperties
-      }
     >
       {children}
     </DivStyled>

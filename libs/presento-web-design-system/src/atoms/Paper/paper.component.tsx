@@ -10,7 +10,6 @@ const DivStyled = styled('div')<{
   noPaddings: NonNullable<PaperProps['noPaddings']>;
   shadowSize: NonNullable<PaperProps['shadowSize']>;
 }>(({ theme }) => ({
-  // boxShadow: `0.3px 0.5px 0.6px hsl(${shadowColor} / 0.38), 0.8px 1.6px 2px -0.9px hsl(${shadowColor} / 0.37), 2px 4.1px 5px -1.8px hsl(${shadowColor} / 0.36), 5px 10px 12.3px -2.7px hsl(${shadowColor} / 0.35);`,
   padding: theme.spacing.unit * 2,
   variants: [
     {
