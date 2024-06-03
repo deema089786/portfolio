@@ -1,9 +1,19 @@
-import { string } from 'three/examples/jsm/nodes/shadernode/ShaderNode';
-
 export type Theme = {
   color: {
-    primary: string;
-    secondary: string;
+    primary: {
+      main: string;
+      light: string;
+      dark: string;
+      contrast: string;
+      buttonText: string;
+    };
+    secondary: {
+      main: string;
+      light: string;
+      dark: string;
+      contrast: string;
+      buttonText: string;
+    };
   };
   spacing: {
     unit: number;
@@ -30,8 +40,20 @@ export type ThemeSpacingProps = {
 
 export const defaultTheme: Theme = {
   color: {
-    primary: 'tomato',
-    secondary: 'cyan',
+    primary: {
+      main: '#001d3d',
+      light: '#003566',
+      dark: '#000814',
+      contrast: '#B0CCE9',
+      buttonText: 'hsl(209, 100%, 11%)',
+    },
+    secondary: {
+      main: '#ffc300',
+      light: '#ffd60a',
+      dark: '#F79E04',
+      contrast: '#4F2600',
+      buttonText: 'hsl(27,9%,81%)',
+    },
   },
   spacing: {
     unit: 8,
