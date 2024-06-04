@@ -52,7 +52,7 @@ export const defaultTheme: Theme = {
       light: '#ffd60a',
       dark: '#F79E04',
       contrast: '#4F2600',
-      buttonText: 'hsl(27,9%,81%)',
+      buttonText: 'hsl(29, 100%, 15%)',
     },
   },
   spacing: {

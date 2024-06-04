@@ -82,7 +82,6 @@ const ButtonStyled = styled('button')<{
       style: {
         backgroundColor: `hsl(from ${theme.color.primary.main} h s l / 10%)`,
         color: theme.color.primary.buttonText,
-        // borderColor: theme.color.primary.dark,
         '&:hover': {
           backgroundColor: `hsl(from ${theme.color.primary.main} h s l / 15%)`,
           borderColor: theme.color.primary.buttonText,
@@ -94,7 +93,6 @@ const ButtonStyled = styled('button')<{
       style: {
         backgroundColor: `hsl(from ${theme.color.secondary.main} h s l / 10%)`,
         color: theme.color.secondary.buttonText,
-        // borderColor: theme.color.secondary.dark,
         '&:hover': {
           backgroundColor: `hsl(from ${theme.color.secondary.main} h s l / 15%)`,
           borderColor: theme.color.secondary.buttonText,
