@@ -1,28 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { SceneCard } from './scene-card.component';
+import { SceneConfiguration } from './scene-configuration.component';
 
-const meta: Meta<typeof SceneCard> = {
-  component: SceneCard,
-  title: 'Molecules/Scene Card',
+const meta: Meta<typeof SceneConfiguration> = {
+  component: SceneConfiguration,
+  title: 'Molecules/Scene Configuration',
 };
 export default meta;
-type Story = StoryObj<typeof SceneCard>;
+type Story = StoryObj<typeof SceneConfiguration>;
 
 export const Default: Story = {
   args: {
-    imageSrc: '/images/sb-story-scene-card-image.png',
-    title: 'Single Mobile Device',
-    description: 'Pretty render with device on the table and waves',
-    tags: [
-      { id: '1', label: 'Mobile', color: 'info' },
-      { id: '2', label: 'IOS', color: 'warning' },
-      { id: '3', label: 'Android', color: 'success' },
-    ],
+    test: '',
   },
   render: (props) => (
-    <div style={{ width: 350 }}>
-      <SceneCard {...props} />
+    <div style={{ width: 400 }}>
+      <SceneConfiguration {...props} />
     </div>
   ),
 };

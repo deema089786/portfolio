@@ -1,5 +1,6 @@
 export type Theme = {
   color: {
+    divider: string;
     primary: {
       main: string;
       light: string;
@@ -23,23 +24,9 @@ export type Theme = {
   };
 };
 
-export type ThemeSpacingUnitProp = string | number;
-
-export type ThemeSpacingProps = {
-  p?: number | string;
-  pt?: number | string;
-  pb?: number | string;
-  pl?: number | string;
-  pr?: number | string;
-  m?: number | string;
-  mt?: number | string;
-  mb?: number | string;
-  ml?: number | string;
-  mr?: number | string;
-};
-
 export const defaultTheme: Theme = {
   color: {
+    divider: '#dadada',
     primary: {
       main: '#001d3d',
       light: '#003566',
@@ -62,3 +49,18 @@ export const defaultTheme: Theme = {
     fontFamily: 'Inter, sans-serif',
   },
 };
+
+// export type ThemeSpacingUnitProp = string | number;
+//
+// export type ThemeSpacingProps = {
+//   p?: number | string;
+//   pt?: number | string;
+//   pb?: number | string;
+//   pl?: number | string;
+//   pr?: number | string;
+//   m?: number | string;
+//   mt?: number | string;
+//   mb?: number | string;
+//   ml?: number | string;
+//   mr?: number | string;
+// };

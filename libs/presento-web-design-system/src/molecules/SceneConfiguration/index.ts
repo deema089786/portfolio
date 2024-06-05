@@ -1,1 +1,1 @@
-export * from './scene-card.component';
+export * from './scene-configuration.component';

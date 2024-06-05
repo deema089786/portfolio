@@ -103,7 +103,7 @@ const ButtonStyled = styled('button')<{
 }));
 
 export const Button: React.FC<PropsWithChildren<ButtonProps>> = (props) => {
-  const { children, className, color, size } = props;
+  const { children, className, color = 'primary', size = 'medium' } = props;
   return (
     <ButtonStyled role="button" className={className} color={color} size={size}>
       {children}

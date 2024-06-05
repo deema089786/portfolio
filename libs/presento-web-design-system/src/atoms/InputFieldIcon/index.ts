@@ -1,2 +1,2 @@
-export * from './tag.stories';
-export * from './tag.types';
+export * from './input-field-icon.stories';
+export * from './input-field-icon.types';

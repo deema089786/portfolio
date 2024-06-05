@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { TextField } from './text-field.component';
+import { SelectField } from './select-field.component';
 
-const meta: Meta<typeof TextField> = {
-  component: TextField,
-  title: 'Inputs/Text Field',
+const meta: Meta<typeof SelectField> = {
+  component: SelectField,
+  title: 'Inputs/Select Field',
 };
 export default meta;
-type Story = StoryObj<typeof TextField>;
+type Story = StoryObj<typeof SelectField>;
 
 export const Default: Story = {
-  args: { placeholder: 'Text Field' },
+  args: { placeholder: 'Select Field' },
 };

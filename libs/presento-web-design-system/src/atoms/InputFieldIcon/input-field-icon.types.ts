@@ -1,13 +1,6 @@
-import React from 'react';
+export type InputFieldIconPropsPlacement = 'left' | 'right';
 
-export type TagPropsColor =
-  | 'primary'
-  | 'secondary'
-  | 'info'
-  | 'warning'
-  | 'success';
-
-export type TagProps = {
-  children?: React.ReactNode;
-  color?: TagPropsColor;
+export type InputFieldIconProps = {
+  icon: string;
+  placement?: InputFieldIconPropsPlacement;
 };

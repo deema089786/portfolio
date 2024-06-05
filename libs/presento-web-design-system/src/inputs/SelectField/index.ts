@@ -1,1 +1,1 @@
-export * from './text-field.component';
+export * from './select-field.component';

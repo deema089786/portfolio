@@ -50,6 +50,7 @@ export const Paper: React.FC<PropsWithChildren<PaperProps>> = (props) => {
     variant = 'round',
     shadowSize = 'medium',
     noPaddings = false,
+    style,
   } = props;
 
   return (
@@ -58,7 +59,9 @@ export const Paper: React.FC<PropsWithChildren<PaperProps>> = (props) => {
       variant={variant}
       noPaddings={noPaddings}
       shadowSize={shadowSize}
-      style={{ '--shadow-color': SHADOW_COLOR } as React.CSSProperties}
+      style={
+        { '--shadow-color': SHADOW_COLOR, ...style } as React.CSSProperties
+      }
     >
       {children}
     </DivStyled>

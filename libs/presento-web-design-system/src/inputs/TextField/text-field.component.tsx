@@ -2,20 +2,32 @@ import React from 'react';
 import { styled } from '@pigment-css/react';
 
 import { TextFieldProps } from './text-field.types';
+import { InputFieldIcon } from '../../atoms/InputFieldIcon/input-field-icon.component';
 
 const InputStyled = styled('input')(({ theme }) => ({
   outline: 'none',
   display: 'inline-block',
   height: theme.spacing.unit * 5,
-  verticalAlign: 'middle',
-  borderRadius: 500000,
-  minWidth: '100px',
+  width: '100%',
+  border: 'none',
+  backgroundColor: 'transparent',
+
   paddingTop: 0,
   paddingBottom: 0,
   paddingLeft: theme.spacing.unit * 2,
   paddingRight: theme.spacing.unit * 2,
+}));
 
-  border: '1px solid transparent',
+export const InputContainer = styled('div')<{
+  iconPlacement: TextFieldProps['iconPlacement'];
+}>(({ theme }) => ({
+  position: 'relative',
+  backgroundColor: 'white',
+  verticalAlign: 'middle',
+  overflow: 'hidden',
+  borderRadius: 500000,
+  minWidth: '100px',
+  border: `1px solid ${theme.color.divider}`,
 
   '--shadow-color': '0deg 0% 0%',
   boxShadow:
@@ -27,6 +39,17 @@ const InputStyled = styled('input')(({ theme }) => ({
   '&:focus': {
     borderColor: theme.color.primary.dark,
   },
+
+  variants: [
+    {
+      props: { iconPlacement: 'right' },
+      style: { paddingRight: theme.spacing.unit * 3 },
+    },
+    {
+      props: { iconPlacement: 'left' },
+      style: { paddingLeft: theme.spacing.unit * 4 },
+    },
+  ],
 }));
 
 export const TextField: React.FC<TextFieldProps> = (props) => {
@@ -41,19 +64,26 @@ export const TextField: React.FC<TextFieldProps> = (props) => {
     autoFocus = false,
     style,
     className,
+    // region Icon
+    icon,
+    iconPlacement,
+    // endregion
   } = props;
   return (
-    <InputStyled
-      value={value}
-      onChange={onChange}
-      name={name}
-      type={type}
-      placeholder={placeholder}
-      disabled={disabled}
-      maxLength={maxLength}
-      autoFocus={autoFocus}
-      style={style}
-      className={className}
-    />
+    <InputContainer iconPlacement={iconPlacement}>
+      <InputStyled
+        value={value}
+        onChange={onChange}
+        name={name}
+        type={type}
+        placeholder={placeholder}
+        disabled={disabled}
+        maxLength={maxLength}
+        autoFocus={autoFocus}
+        style={style}
+        className={className}
+      />
+      {icon && <InputFieldIcon placement={iconPlacement} icon={icon} />}
+    </InputContainer>
   );
 };

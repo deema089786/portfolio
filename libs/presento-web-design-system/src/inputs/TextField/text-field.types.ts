@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { InputFieldIconPropsPlacement } from '../../atoms/InputFieldIcon';
+
 export type TextFieldProps = {
   value: string;
   onChange?(e: React.ChangeEvent<HTMLInputElement>): void;
@@ -11,4 +13,6 @@ export type TextFieldProps = {
   autoFocus?: boolean;
   style?: React.CSSProperties;
   className?: string;
+  icon?: string;
+  iconPlacement?: InputFieldIconPropsPlacement;
 };

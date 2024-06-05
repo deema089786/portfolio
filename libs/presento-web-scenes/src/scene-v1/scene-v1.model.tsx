@@ -80,15 +80,15 @@ type GLTFResult = GLTF & {
     ['Material.025']: THREE.MeshStandardMaterial;
     metal_blue: THREE.MeshStandardMaterial;
   };
-  animations: GLTFAction[];
+  // animations: GLTFAction[];
 };
 
-type ContextType = Record<
-  string,
-  React.ForwardRefExoticComponent<JSX.IntrinsicElements['mesh']>
->;
+// type ContextType = Record<
+//   string,
+//   React.ForwardRefExoticComponent<JSX.IntrinsicElements['mesh']>
+// >;
 
-export function Model(props: JSX.IntrinsicElements['group']) {
+export function SceneModel(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/scenes/scene-v1.glb') as GLTFResult;
   return (
     <group {...props} dispose={null}>

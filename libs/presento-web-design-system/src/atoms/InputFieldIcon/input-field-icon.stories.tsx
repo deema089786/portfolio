@@ -1,41 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Tag } from './tag.component';
+import { InputFieldIcon } from './input-field-icon.component';
 
-const meta: Meta<typeof Tag> = {
-  component: Tag,
-  title: 'Atoms/Tag',
+const meta: Meta<typeof InputFieldIcon> = {
+  component: InputFieldIcon,
+  title: 'Atoms/Input Field Icon',
 };
 export default meta;
-type Story = StoryObj<typeof Tag>;
+type Story = StoryObj<typeof InputFieldIcon>;
 
-export const Primary: Story = {
-  args: {
-    color: 'primary',
-    children: 'Primary',
-  },
-};
-export const Secondary: Story = {
-  args: {
-    color: 'secondary',
-    children: 'Secondary',
-  },
-};
-export const Info: Story = {
-  args: {
-    color: 'info',
-    children: 'Info',
-  },
-};
-export const Warning: Story = {
-  args: {
-    color: 'warning',
-    children: 'Warning',
-  },
-};
-export const Success: Story = {
-  args: {
-    color: 'success',
-    children: 'Success',
-  },
+export const Default: Story = {
+  args: {},
 };

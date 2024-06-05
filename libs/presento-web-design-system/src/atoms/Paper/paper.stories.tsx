@@ -9,7 +9,7 @@ const meta: Meta<typeof Paper> = {
 export default meta;
 type Story = StoryObj<typeof Paper>;
 
-export const PaperRoundedShadowSmall: Story = {
+export const RoundedShadowSmall: Story = {
   args: {
     variant: 'round',
     shadowSize: 'small',
@@ -21,7 +21,7 @@ export const PaperRoundedShadowSmall: Story = {
     </div>
   ),
 };
-export const PaperRoundedShadowMedium: Story = {
+export const RoundedShadowMedium: Story = {
   args: {
     variant: 'round',
     shadowSize: 'medium',
@@ -33,7 +33,7 @@ export const PaperRoundedShadowMedium: Story = {
     </div>
   ),
 };
-export const PaperRoundedShadowLarge: Story = {
+export const RoundedShadowLarge: Story = {
   args: {
     variant: 'round',
     shadowSize: 'large',
@@ -46,7 +46,7 @@ export const PaperRoundedShadowLarge: Story = {
   ),
 };
 
-export const PaperSquareShadowSmall: Story = {
+export const SquareShadowSmall: Story = {
   args: {
     variant: 'square',
     shadowSize: 'small',
@@ -58,7 +58,7 @@ export const PaperSquareShadowSmall: Story = {
     </div>
   ),
 };
-export const PaperSquareShadowMedium: Story = {
+export const SquareShadowMedium: Story = {
   args: {
     variant: 'square',
     shadowSize: 'medium',
@@ -70,7 +70,7 @@ export const PaperSquareShadowMedium: Story = {
     </div>
   ),
 };
-export const PaperSquareShadowLarge: Story = {
+export const SquareShadowLarge: Story = {
   args: {
     variant: 'square',
     shadowSize: 'large',
