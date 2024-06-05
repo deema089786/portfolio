@@ -11,6 +11,7 @@ const DivStyled = styled('div')<{
   shadowSize: NonNullable<PaperProps['shadowSize']>;
 }>(({ theme }) => ({
   padding: theme.spacing.unit * 2,
+  backgroundColor: 'white',
   variants: [
     {
       props: { variant: 'round' },

@@ -21,8 +21,20 @@ const nextConfig = {
  **/
 const theme = {
   color: {
-    primary: 'tomato',
-    secondary: 'cyan',
+    primary: {
+      main: '#001d3d',
+      light: '#003566',
+      dark: '#000814',
+      contrast: '#B0CCE9',
+      buttonText: 'hsl(209, 100%, 11%)',
+    },
+    secondary: {
+      main: '#ffc300',
+      light: '#ffd60a',
+      dark: '#F79E04',
+      contrast: '#4F2600',
+      buttonText: 'hsl(29, 100%, 15%)',
+    },
   },
   spacing: {
     unit: 8,

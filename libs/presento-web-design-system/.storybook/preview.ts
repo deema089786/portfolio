@@ -1,5 +1,6 @@
 import '../src/theme/theme.css-reset.css';
 import '../src/theme/theme.font.css';
+import '@pigment-css/react/styles.css';
 
 import { Preview } from '@storybook/react';
 
@@ -10,7 +11,7 @@ const preview: Preview = {
       values: [
         {
           name: 'light',
-          value: '#b9b9b9',
+          value: '#e0e0e0',
         },
         {
           name: 'dark',

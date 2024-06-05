@@ -1,6 +1,6 @@
 import './reset.css';
 import './global.css';
-import '@pigment-css/react/styles.css';
+// import '@pigment-css/react/styles.css';
 
 export const metadata = {
   title: 'Welcome to presento-web',
