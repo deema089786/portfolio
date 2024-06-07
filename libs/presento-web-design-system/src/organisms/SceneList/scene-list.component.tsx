@@ -1,20 +1,8 @@
 import React, { useMemo } from 'react';
-import { styled } from '@pigment-css/react';
+import Box from '@mui/material/Box';
 
 import { SceneCard } from '../../molecules';
 import { SceneListProps } from './scene-list.types';
-
-const Container = styled('div')(({ theme }) => ({
-  display: 'grid',
-  gridTemplateColumns: '1fr 1fr 1fr',
-  gridTemplateRows: '1fr 1fr 1fr',
-  gap: theme.spacing.unit * 1,
-  gridTemplateAreas: `
-  ". . ."
-  ". . ."
-  ". . ."
-  `,
-}));
 
 export const SceneList: React.FC<SceneListProps> = (props) => {
   const { scenes } = props;
@@ -25,5 +13,21 @@ export const SceneList: React.FC<SceneListProps> = (props) => {
       )),
     [scenes],
   );
-  return <Container>{sceneCards}</Container>;
+  return (
+    <Box
+      sx={(theme) => ({
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr 1fr',
+        gridTemplateRows: '1fr 1fr 1fr',
+        gap: theme.spacing(1),
+        gridTemplateAreas: `
+  ". . ."
+  ". . ."
+  ". . ."
+  `,
+      })}
+    >
+      {sceneCards}
+    </Box>
+  );
 };

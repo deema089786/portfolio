@@ -1,6 +1,13 @@
-import { SceneV1 } from '@presento/presento-web-scenes';
+import { Suspense } from 'react';
 
+import { SceneV1 } from '@presento/presento-web-scenes';
 import { Button } from '@presento/presento-web-design-system';
+
+import { TestSuspense } from './TestSuspense';
+
+const Loading = () => {
+  return <p>Loading</p>;
+};
 
 export default function Index() {
   /*
@@ -10,6 +17,9 @@ export default function Index() {
    */
   return (
     <>
+      <Suspense fallback={<Loading />}>
+        <TestSuspense />
+      </Suspense>
       <Button>Normal button</Button>
       <Button color="primary" size="large">
         Large button

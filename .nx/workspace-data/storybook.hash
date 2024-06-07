@@ -1,0 +1,54 @@
+{
+  "994806219074285039": {
+    "build-storybook": {
+      "command": "storybook build",
+      "options": {
+        "cwd": "apps/presento-web"
+      },
+      "cache": true,
+      "outputs": [
+        "{workspaceRoot}/{projectRoot}/storybook-static",
+        "{options.output-dir}",
+        "{options.outputDir}",
+        "{options.o}"
+      ],
+      "inputs": [
+        "production",
+        "^production",
+        {
+          "externalDependencies": [
+            "storybook",
+            "@storybook/test-runner"
+          ]
+        }
+      ]
+    },
+    "storybook": {
+      "command": "storybook dev",
+      "options": {
+        "cwd": "apps/presento-web"
+      }
+    },
+    "test-storybook": {
+      "command": "test-storybook",
+      "options": {
+        "cwd": "apps/presento-web"
+      },
+      "inputs": [
+        {
+          "externalDependencies": [
+            "storybook",
+            "@storybook/test-runner"
+          ]
+        }
+      ]
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "build-storybook",
+        "staticFilePath": "apps/presento-web/storybook-static"
+      }
+    }
+  }
+}

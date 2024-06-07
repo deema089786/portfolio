@@ -1,6 +1,10 @@
 import './reset.css';
 import './global.css';
-// import '@pigment-css/react/styles.css';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
+import { theme } from '@presento/presento-web-design-system';
 
 export const metadata = {
   title: 'Welcome to presento-web',
@@ -14,7 +18,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            {children}
+          </ThemeProvider>
+        </AppRouterCacheProvider>
+      </body>
     </html>
   );
 }

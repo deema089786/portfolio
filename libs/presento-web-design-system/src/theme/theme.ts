@@ -1,66 +1,40 @@
-export type Theme = {
-  color: {
-    divider: string;
-    primary: {
-      main: string;
-      light: string;
-      dark: string;
-      contrast: string;
-      buttonText: string;
-    };
-    secondary: {
-      main: string;
-      light: string;
-      dark: string;
-      contrast: string;
-      buttonText: string;
-    };
-  };
-  spacing: {
-    unit: number;
-  };
-  typography: {
-    fontFamily: string;
-  };
-};
+'use client';
 
-export const defaultTheme: Theme = {
-  color: {
-    divider: '#dadada',
+// import { Roboto } from 'next/font/google';
+import { createTheme } from '@mui/material/styles';
+
+// const roboto = Roboto({
+//   weight: ['300', '400', '500', '700'],
+//   subsets: ['latin'],
+//   display: 'swap',
+// });
+
+export const theme = createTheme({
+  palette: {
     primary: {
-      main: '#001d3d',
-      light: '#003566',
-      dark: '#000814',
-      contrast: '#B0CCE9',
-      buttonText: 'hsl(209, 100%, 11%)',
+      light: '#757ce8',
+      main: '#204f1b',
+      dark: '#002884',
+      contrastText: '#fff',
     },
     secondary: {
-      main: '#ffc300',
-      light: '#ffd60a',
-      dark: '#F79E04',
-      contrast: '#4F2600',
-      buttonText: 'hsl(29, 100%, 15%)',
+      light: '#ff7961',
+      main: '#f44336',
+      dark: '#ba000d',
+      contrastText: '#000',
     },
   },
-  spacing: {
-    unit: 8,
-  },
   typography: {
-    fontFamily: 'Inter, sans-serif',
+    // fontFamily: roboto.style.fontFamily,
   },
-};
-
-// export type ThemeSpacingUnitProp = string | number;
-//
-// export type ThemeSpacingProps = {
-//   p?: number | string;
-//   pt?: number | string;
-//   pb?: number | string;
-//   pl?: number | string;
-//   pr?: number | string;
-//   m?: number | string;
-//   mt?: number | string;
-//   mb?: number | string;
-//   ml?: number | string;
-//   mr?: number | string;
-// };
+  spacing: 8,
+  components: {
+    MuiPaper: {
+      styleOverrides: {
+        rounded: {
+          borderRadius: 16,
+        },
+      },
+    },
+  },
+});

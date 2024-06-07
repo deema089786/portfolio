@@ -1,8 +1,24 @@
 import '../src/theme/theme.css-reset.css';
-import '../src/theme/theme.font.css';
-import '@pigment-css/react/styles.css';
 
 import { Preview } from '@storybook/react';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { withThemeFromJSXProvider } from '@storybook/addon-themes';
+
+import { theme } from '../src';
+
+/* snipped for brevity */
+
+export const decorators = [
+  withThemeFromJSXProvider({
+    themes: {
+      light: theme,
+      dark: theme,
+    },
+    defaultTheme: 'light',
+    Provider: ThemeProvider,
+    GlobalStyles: CssBaseline,
+  }),
+];
 
 const preview: Preview = {
   parameters: {
