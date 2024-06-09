@@ -28,13 +28,7 @@ export const theme = createTheme({
     // fontFamily: roboto.style.fontFamily,
   },
   spacing: 8,
-  components: {
-    MuiPaper: {
-      styleOverrides: {
-        rounded: {
-          borderRadius: 16,
-        },
-      },
-    },
+  shape: {
+    borderRadius: 16,
   },
 });

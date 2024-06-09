@@ -11,7 +11,9 @@ type Story = StoryObj<typeof SceneConfiguration>;
 
 export const Default: Story = {
   args: {
-    test: '',
+    onUploadImageClick: () => undefined,
+    onDeleteImageClick: () => undefined,
+    imageSrc: null,
   },
   render: (props) => (
     <div style={{ width: 400 }}>

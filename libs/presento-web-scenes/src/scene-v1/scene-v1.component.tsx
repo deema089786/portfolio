@@ -1,21 +1,85 @@
-import React from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Paper } from '@presento/presento-web-design-system';
+import {
+  Paper,
+  SceneConfiguration as SceneConfigurationComponent,
+} from '@presento/presento-web-design-system';
+import { Stack } from '@mui/material';
+import { getSrcFromFile, uploadClintFileToApp } from '@presento/utils';
+import { WebGLRenderer } from 'three';
 
 import { SceneModel } from './scene-v1.model';
 import { SceneConfiguration } from '../components/scene-configuration.component';
 
-export const SceneV1: React.FC = () => {
+const DEFAULT_DEVICE_SCREEN_IMAGE = '/screenshots/default.png' as const;
+
+type SceneV1Props = {
+  renderDisabled?: boolean;
+};
+
+export const SceneV1: React.FC<SceneV1Props> = (props) => {
+  const { renderDisabled = false } = props;
+
+  const [deviceScreenImageSrc, setDeviceScreenImageSrc] = useState<
+    string | null
+  >(null);
+
+  const glRef = useRef<WebGLRenderer | null>(null);
+  const handleGl = useCallback((gl: WebGLRenderer) => (glRef.current = gl), []);
+
+  const handleSelectImage = useCallback(async () => {
+    const file = await uploadClintFileToApp();
+    if (!file) return;
+    const fileSrc = await getSrcFromFile(file);
+    if (!fileSrc) return;
+    setDeviceScreenImageSrc(fileSrc);
+  }, []);
+
+  const handleScreenshot = useCallback(() => {
+    const gl = glRef.current;
+    if (!gl) return;
+    const image = glRef.current?.domElement.toDataURL('image/png');
+    if (!image) return;
+    const a = document.createElement('a');
+    a.setAttribute('download', 'screenshot.png');
+    a.setAttribute('href', image);
+    a.click();
+  }, []);
+
   return (
-    <Paper noPaddings style={{ height: 700, width: 1000 }}>
-      <Canvas shadows style={{ height: 700, width: 1000 }}>
-        <SceneModel />
-        <SceneConfiguration
-          cameraName="x-scene-camera"
-          screenImageSrc="/screenshots/default.png"
-          screenMeshName="screen01"
-        />
-      </Canvas>
-    </Paper>
+    <Stack direction="row" spacing={2}>
+      <Paper
+        id="canvas-container"
+        style={{
+          position: 'relative',
+          minHeight: 700,
+          height: 700,
+          minWidth: 1000,
+          width: 1000,
+          overflow: 'hidden',
+        }}
+      >
+        {!renderDisabled && (
+          <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
+            <SceneModel />
+            <SceneConfiguration
+              cameraName="x-scene-camera"
+              screenImageSrc={
+                deviceScreenImageSrc || DEFAULT_DEVICE_SCREEN_IMAGE
+              }
+              screenMeshName="screen01"
+              onGL={handleGl}
+            />
+          </Canvas>
+        )}
+      </Paper>
+      <SceneConfigurationComponent
+        sx={{ flex: 1 }}
+        onUploadImageClick={handleSelectImage}
+        onDeleteImageClick={() => setDeviceScreenImageSrc(null)}
+        onScreenshotClick={handleScreenshot}
+        imageSrc={deviceScreenImageSrc}
+      />
+    </Stack>
   );
 };

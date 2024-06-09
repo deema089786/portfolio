@@ -1,12 +1,7 @@
-import '../src/theme/theme.css-reset.css';
-
 import { Preview } from '@storybook/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
-
-import { theme } from '../src';
-
-/* snipped for brevity */
+import { theme } from '@presento/presento-web-design-system';
 
 export const decorators = [
   withThemeFromJSXProvider({
