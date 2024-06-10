@@ -1,0 +1,34 @@
+body {
+  --background-size-y: 80px;
+  --background-size-x: 80px;
+  --dot-size: 2px;
+  background-image: radial-gradient(circle, rgba(77, 2, 179, 0.27) var(--dot-size),transparent 0);
+  background-size: var(--background-size-x) var(--background-size-y);
+  background-position-x: 50%;
+  animation: dotScroll 16s linear infinite;
+  background-color: #f6f3ff !important;
+
+  @media (min-width: 400px) {
+    --background-size-y: 100px;
+    --background-size-x: 100px;;
+  }
+
+  @media (min-width: 800px) {
+    --background-size-y: 120px;
+    --background-size-x: 120px;;
+  }
+
+  @media (min-width: 1200px) {
+    --background-size-y: 140px;
+    --background-size-x: 140px;;
+  }
+}
+
+@keyframes dotScroll {
+  0% {
+    background-position-y: var(--background-size-y);
+  }
+  100% {
+    background-position-y: 0;
+  }
+}

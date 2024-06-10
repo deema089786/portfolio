@@ -10,10 +10,10 @@ export const ScreenLayout: React.FC<PropsWithChildren<ScreenLayoutProps>> = (
 ) => {
   const { children } = props;
   return (
-    <Stack>
+    <Stack py={2} spacing={4} alignItems="center">
       <ScreenHeader />
       <Container maxWidth="xl" disableGutters>
-        {children}
+        <Stack spacing={2}>{children}</Stack>
       </Container>
     </Stack>
   );

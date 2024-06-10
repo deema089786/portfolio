@@ -25,7 +25,7 @@ export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
         src={imageSrc}
       />
       <TextField placeholder="Select Phone Screen Image" />
-      <Button onClick={onScreenshotClick} size="large">
+      <Button onClick={onScreenshotClick} size="large" variant="contained">
         Generate Image
       </Button>
     </Stack>

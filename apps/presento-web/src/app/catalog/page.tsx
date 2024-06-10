@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CatalogLayout, SceneList } from '@presento/presento-web-design-system';
+import { Breadcrumbs, SceneList } from '@presento/presento-web-design-system';
 
 const sceneCards: any = [
   {
@@ -95,9 +95,10 @@ const sceneCards: any = [
 
 const CatalogPage: React.FC = () => {
   return (
-    <CatalogLayout>
+    <>
+      <Breadcrumbs items={[{ label: 'Catalog' }]} />
       <SceneList scenes={sceneCards} />
-    </CatalogLayout>
+    </>
   );
 };
 
