@@ -15,17 +15,18 @@ export const SceneList: React.FC<SceneListProps> = (props) => {
   );
   return (
     <Box
-      sx={(theme) => ({
+      sx={{
         display: 'grid',
         gridTemplateColumns: '1fr 1fr 1fr',
         gridTemplateRows: '1fr 1fr 1fr',
-        gap: theme.spacing(1),
+        // gap: theme.spacing(1),
+        gap: '16px',
         gridTemplateAreas: `
   ". . ."
   ". . ."
   ". . ."
   `,
-      })}
+      }}
     >
       {sceneCards}
     </Box>
