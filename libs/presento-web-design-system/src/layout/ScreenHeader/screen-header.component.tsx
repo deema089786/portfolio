@@ -36,7 +36,7 @@ export const ScreenHeader: React.FC<ScreenHeaderProps> = () => {
             Catalog
           </Button>
           <Button size="small" component={Link} href="/home">
-            About us
+            About Us
           </Button>
           <Button size="small" component={Link} href="/home">
             Guide

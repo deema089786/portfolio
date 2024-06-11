@@ -5,12 +5,12 @@ import { Paper } from '../Paper';
 
 const colors: Record<TagPropsColor, { text: string; background: string }> = {
   primary: {
-    text: 'white',
-    background: 'black',
+    text: '#300170',
+    background: 'white',
   },
   secondary: {
-    text: 'white',
-    background: 'black',
+    text: '#300170',
+    background: 'white',
   },
   info: {
     text: 'darkblue',

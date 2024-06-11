@@ -2,6 +2,7 @@ import { Preview } from '@storybook/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 import { theme } from '@presento/presento-web-design-system';
+import './reset.css';
 
 export const decorators = [
   withThemeFromJSXProvider({
