@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import Box from '@mui/material/Box';
+import Grid from '@mui/material/Unstable_Grid2';
 
 import { SceneCard } from '../../molecules';
 import { SceneListProps } from './scene-list.types';
@@ -9,26 +9,15 @@ export const SceneList: React.FC<SceneListProps> = (props) => {
   const sceneCards = useMemo(
     () =>
       scenes.map(({ id, ...sceneCardProps }) => (
-        <SceneCard key={id} {...sceneCardProps} />
+        <Grid xs={12} sm={6} md={4} lg={3} xl={2}>
+          <SceneCard key={id} {...sceneCardProps} />
+        </Grid>
       )),
     [scenes],
   );
   return (
-    <Box
-      sx={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr 1fr',
-        gridTemplateRows: '1fr 1fr 1fr',
-        // gap: theme.spacing(1),
-        gap: '16px',
-        gridTemplateAreas: `
-  ". . ."
-  ". . ."
-  ". . ."
-  `,
-      }}
-    >
+    <Grid container spacing={2} sx={{ mx: '-8px !important' }}>
       {sceneCards}
-    </Box>
+    </Grid>
   );
 };
