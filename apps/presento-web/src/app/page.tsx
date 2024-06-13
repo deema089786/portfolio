@@ -1,7 +1,10 @@
 import { Stack } from '@mui/material';
+import Link from 'next/link';
 
 import {
   AnimatedBubble,
+  Button,
+  ShowroomGrid,
   Typography,
 } from '@presento/presento-web-design-system';
 
@@ -29,7 +32,22 @@ export default function Index() {
         With Presento, you can easily create stunning presentations that look
         and feel like the real thing.
       </Typography>
-      <AnimatedBubble />
+      <Stack direction="row" justifyContent="center">
+        <AnimatedBubble size={400}>
+          <Button
+            component={Link}
+            href="/catalog"
+            sx={{ background: 'white', fontSize: '1.5rem' }}
+            variant="outlined"
+            size="large"
+          >
+            Explore the catalog
+          </Button>
+        </AnimatedBubble>
+      </Stack>
+      <Stack direction="row" justifyContent="center">
+        <ShowroomGrid />
+      </Stack>
     </Stack>
   );
 }

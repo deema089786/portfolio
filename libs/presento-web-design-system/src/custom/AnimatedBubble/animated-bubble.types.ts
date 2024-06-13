@@ -1,1 +1,1 @@
-export type AnimatedBubbleProps = NonNullable<unknown>;
+export type AnimatedBubbleProps = { size?: number };

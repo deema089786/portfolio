@@ -1,17 +1,30 @@
 import React, { PropsWithChildren } from 'react';
-import './animated-bubble.css';
-
 import Box from '@mui/material/Box';
 
 import { AnimatedBubbleProps } from './animated-bubble.types';
+const DEFAULT_SIZE = 300 as const;
 
 export const AnimatedBubble: React.FC<
   PropsWithChildren<AnimatedBubbleProps>
 > = (props) => {
-  const { children } = props;
+  const { children, size = DEFAULT_SIZE } = props;
   return (
-    <Box className="blob">
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <Box
+      sx={{
+        position: 'relative',
+        width: size,
+        height: size,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        '& .svg-animation': { position: 'absolute' },
+      }}
+    >
+      <svg
+        className="svg-animation"
+        viewBox="0 0 100 100"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <defs>
           <linearGradient
             id="fill"
@@ -21,8 +34,8 @@ export const AnimatedBubble: React.FC<
             y2="0%"
             gradientTransform="rotate(130 0.5 0.5)"
           >
-            <stop offset="0%" stop-color="#ac47e6"></stop>
-            <stop offset="100%" stop-color="#7b8cff"></stop>
+            <stop offset="0%" stopColor="#9bc2ff"></stop>
+            <stop offset="100%" stopColor="#fddbf0"></stop>
           </linearGradient>
         </defs>
         <path fill="url(#fill)">
@@ -43,6 +56,7 @@ export const AnimatedBubble: React.FC<
           ></animate>
         </path>
       </svg>
+      {children}
     </Box>
   );
 };
