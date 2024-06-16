@@ -10,7 +10,7 @@ export const SceneList: React.FC<SceneListProps> = (props) => {
     () =>
       scenes.map(({ id, ...sceneCardProps }) => (
         <Grid xs={12} sm={6} md={4} lg={3} xl={2}>
-          <SceneCard key={id} {...sceneCardProps} />
+          <SceneCard key={id} href={`/catalog/${id}`} {...sceneCardProps} />
         </Grid>
       )),
     [scenes],

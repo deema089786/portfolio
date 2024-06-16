@@ -8,9 +8,9 @@ import { Paper, Tag } from '../../atoms';
 import { Typography } from '../../core';
 
 export const SceneCard: React.FC<SceneCardProps> = (props) => {
-  const { imageSrc, title, description, tags } = props;
+  const { imageSrc, title, description, tags, href } = props;
   return (
-    <Link href="/catalog/1">
+    <Link href={href || '#'}>
       <Paper
         sx={{
           position: 'relative',

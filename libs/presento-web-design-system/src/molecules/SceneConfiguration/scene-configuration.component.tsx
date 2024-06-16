@@ -1,10 +1,12 @@
 import React from 'react';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
+import { Divider } from '@mui/material';
 
 import { SceneConfigurationProps } from './scene-configuration.types';
 import { Button, Paper } from '../../atoms';
 import { ImagePicker } from './components';
+import { SceneCameraControls } from '../SceneCameraControls';
 
 export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
   props,
@@ -15,6 +17,8 @@ export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
     onDeleteImageClick,
     onScreenshotClick,
     imageSrc,
+    onCameraMove,
+    onCameraRotate,
   } = props;
 
   return (
@@ -24,7 +28,8 @@ export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
         onDeleteClick={onDeleteImageClick}
         src={imageSrc}
       />
-      <TextField placeholder="Select Phone Screen Image" />
+      <Divider />
+      <SceneCameraControls onMove={onCameraMove} onRotate={onCameraRotate} />
       <Button onClick={onScreenshotClick} size="large" variant="contained">
         Generate Image
       </Button>

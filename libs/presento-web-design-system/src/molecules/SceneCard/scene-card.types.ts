@@ -13,4 +13,5 @@ export type SceneCardProps = {
   title: string;
   description: string;
   tags: SceneCardPropsTags;
+  href?: string;
 };

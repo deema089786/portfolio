@@ -1,15 +1,20 @@
 import React from 'react';
 
-import { SceneV1 } from '@presento/presento-web-scenes';
-import { Breadcrumbs } from '@presento/presento-web-design-system';
+import { SCENES } from '@presento/presento-web-scenes';
+import { Breadcrumbs, PageHeader } from '@presento/presento-web-design-system';
 
-const ScenePage: React.FC = () => {
+const ScenePage: React.FC<{ params: { sceneId: string } }> = (props) => {
+  const { params } = props;
+  const scene = SCENES.find((scene) => scene.id === params.sceneId);
+  if (!scene) return 'Scene not found';
+
   return (
     <>
       <Breadcrumbs
         items={[{ label: 'Catalog', href: '/catalog' }, { label: 'Scene v1' }]}
       />
-      <SceneV1 renderDisabled />
+      <PageHeader title={scene.title} description={scene.description} />
+      <scene.component renderEnabled />
     </>
   );
 };

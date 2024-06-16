@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useCallback, useRef, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import {
@@ -10,15 +12,12 @@ import { WebGLRenderer } from 'three';
 
 import { SceneModel } from './scene-v1.model';
 import { SceneConfiguration } from '../components/scene-configuration.component';
+import { SceneComponentProps } from '../types';
 
 const DEFAULT_DEVICE_SCREEN_IMAGE = '/screenshots/default.png' as const;
 
-type SceneV1Props = {
-  renderDisabled?: boolean;
-};
-
-export const SceneV1: React.FC<SceneV1Props> = (props) => {
-  const { renderDisabled = false } = props;
+export const SceneV1: React.FC<SceneComponentProps> = (props) => {
+  const { renderEnabled = true } = props;
 
   const [deviceScreenImageSrc, setDeviceScreenImageSrc] = useState<
     string | null
@@ -59,7 +58,7 @@ export const SceneV1: React.FC<SceneV1Props> = (props) => {
           overflow: 'hidden',
         }}
       >
-        {!renderDisabled && (
+        {renderEnabled && (
           <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
             <SceneModel />
             <SceneConfiguration

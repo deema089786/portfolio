@@ -29,7 +29,7 @@ const ImagePickerUploadButton: React.FC<ImagePickerUploadButtonProps> = (
         justifyContent: 'center',
         width: IMAGE_PICKER_ITEM_SIZE_PX,
         height: IMAGE_PICKER_ITEM_SIZE_PX,
-        borderRadius: '8px',
+        borderRadius: '12px',
       }}
     >
       <Image
@@ -112,16 +112,7 @@ type ImagePickerProps = {
 export const ImagePicker: React.FC<ImagePickerProps> = (props) => {
   const { onUploadClick, onDeleteClick, src } = props;
   return (
-    <Stack
-      direction="row"
-      spacing={1}
-      sx={(theme) => ({
-        p: theme.spacing(1),
-        border: '1px solid',
-        borderColor: theme.palette.divider,
-        borderRadius: '12px',
-      })}
-    >
+    <Stack direction="row" spacing={1}>
       <ImagePickerUploadButton onClick={onUploadClick} />
       {src && (
         <ImagePickerItemPreview src={src} onDeleteClick={onDeleteClick} />

@@ -71,7 +71,7 @@
     "@mui/material-nextjs": "^6.0.0-alpha.1",
     "@pigment-css/react": "^0.0.11",
     "@react-spring/three": "^9.7.3",
-    "@react-three/drei": "^9.106.0",
+    "@react-three/drei": "^9.107.0",
     "@react-three/fiber": "^8.16.8",
     "@react-three/postprocessing": "^2.16.2",
     "leva": "^0.9.35",
