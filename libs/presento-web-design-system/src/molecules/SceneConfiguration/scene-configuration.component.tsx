@@ -1,6 +1,5 @@
 import React from 'react';
 import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
 import { Divider } from '@mui/material';
 
 import { SceneConfigurationProps } from './scene-configuration.types';

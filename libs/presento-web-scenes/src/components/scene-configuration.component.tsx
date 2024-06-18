@@ -10,6 +10,8 @@ import { useDeviceScreenImage } from '../hooks/use-device-screen-image.hook';
 
 type SceneConfigurationProps = {
   cameraName: string;
+  cameraPosition: [number, number, number];
+  cameraRotation: [number, number, number];
   screenImageSrc: string;
   screenMeshName: string;
   onGL(gl: WebGLRenderer): void;
@@ -18,11 +20,18 @@ type SceneConfigurationProps = {
 export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
   props,
 ) => {
-  const { cameraName, screenMeshName, screenImageSrc, onGL } = props;
+  const {
+    cameraName,
+    cameraPosition,
+    cameraRotation,
+    screenMeshName,
+    screenImageSrc,
+    onGL,
+  } = props;
 
   const { gl } = useThree();
 
-  useSceneCamera({ cameraName });
+  useSceneCamera({ cameraName, cameraPosition, cameraRotation });
   useDeviceScreenImage({ imageSrc: screenImageSrc, meshName: screenMeshName });
 
   const { enabled, samples, ...config } = useControls({

@@ -10,7 +10,7 @@ const config: StorybookConfig = {
     '../../../libs/presento-web-scenes/src/**/*.docs.mdx',
   ],
   addons: ['@storybook/addon-essentials', '@storybook/addon-themes'],
-  staticDirs: ['../static'],
+  staticDirs: ['../../presento-web/public'],
   framework: {
     name: '@storybook/nextjs',
     options: {},

@@ -5,21 +5,13 @@ Command: npx gltfjsx@6.2.18 apps/presento-web/public/scenes/scene-v1.glb --types
 
 import * as THREE from 'three';
 import React, { useRef } from 'react';
-import {
-  useGLTF,
-  PerspectiveCamera,
-  Html,
-  OrthographicCamera,
-} from '@react-three/drei';
+import { useGLTF, PerspectiveCamera } from '@react-three/drei';
 import { GLTF } from 'three-stdlib';
-import './test.css';
+
+import { ScreenHtml } from '../components/screen-html.component';
 
 type GLTFResult = GLTF & {
   nodes: {
-    Plane: THREE.Mesh;
-    Plane001: THREE.Mesh;
-    Plane002: THREE.Mesh;
-    Plane003: THREE.Mesh;
     back_camera_border01: THREE.Mesh;
     back_camera_border_part_01: THREE.Mesh;
     back_camera_border_part_02: THREE.Mesh;
@@ -59,32 +51,36 @@ type GLTFResult = GLTF & {
     screen_part_03: THREE.Mesh;
     usb01: THREE.Mesh;
     usb_part_01: THREE.Mesh;
+    Plane: THREE.Mesh;
+    Plane001: THREE.Mesh;
+    Plane002: THREE.Mesh;
+    Plane003: THREE.Mesh;
   };
   materials: {
+    ['plastic_black.002']: THREE.MeshStandardMaterial;
+    ['metal_black.002']: THREE.MeshStandardMaterial;
+    ['back_black.002']: THREE.MeshStandardMaterial;
+    ['mat_plastic_gray_dark.002']: THREE.MeshStandardMaterial;
+    ['glass.002']: THREE.MeshStandardMaterial;
+    ['camera_lens.002']: THREE.MeshStandardMaterial;
+    ['glass_falsh.002']: THREE.MeshStandardMaterial;
+    ['chrome.002']: THREE.MeshStandardMaterial;
+    ['mat_white.002']: THREE.MeshStandardMaterial;
+    ['glossy_yellow.002']: THREE.MeshStandardMaterial;
+    ['matte_glass.002']: THREE.MeshStandardMaterial;
+    ['mat_black.004']: THREE.MeshStandardMaterial;
+    ['chrome_logo_black.002']: THREE.MeshStandardMaterial;
+    ['mat_black.005']: THREE.MeshStandardMaterial;
+    ['glossy_black.002']: THREE.MeshStandardMaterial;
+    ['aluminium_black.002']: THREE.MeshStandardMaterial;
+    ['screen.002']: THREE.MeshStandardMaterial;
+    ['text_black.002']: THREE.MeshStandardMaterial;
+    ['mat_gray_dark.002']: THREE.MeshStandardMaterial;
+    ['gold.002']: THREE.MeshStandardMaterial;
     ['Material.024']: THREE.MeshStandardMaterial;
     ['Material.023']: THREE.MeshStandardMaterial;
     ['Material.025']: THREE.MeshStandardMaterial;
     metal_blue: THREE.MeshStandardMaterial;
-    ['plastic_black.001']: THREE.MeshStandardMaterial;
-    ['metal_black.001']: THREE.MeshStandardMaterial;
-    ['back_black.001']: THREE.MeshStandardMaterial;
-    ['mat_plastic_gray_dark.001']: THREE.MeshStandardMaterial;
-    ['glass.001']: THREE.MeshStandardMaterial;
-    ['camera_lens.001']: THREE.MeshStandardMaterial;
-    ['glass_falsh.001']: THREE.MeshStandardMaterial;
-    ['chrome.001']: THREE.MeshStandardMaterial;
-    ['mat_white.001']: THREE.MeshStandardMaterial;
-    ['glossy_yellow.001']: THREE.MeshStandardMaterial;
-    matte_glass: THREE.MeshStandardMaterial;
-    ['mat_black.002']: THREE.MeshStandardMaterial;
-    ['chrome_logo_black.001']: THREE.MeshStandardMaterial;
-    ['mat_black.003']: THREE.MeshStandardMaterial;
-    ['glossy_black.001']: THREE.MeshStandardMaterial;
-    ['aluminium_black.001']: THREE.MeshStandardMaterial;
-    screen: THREE.MeshStandardMaterial;
-    ['text_black.001']: THREE.MeshStandardMaterial;
-    ['mat_gray_dark.001']: THREE.MeshStandardMaterial;
-    ['gold.001']: THREE.MeshStandardMaterial;
   };
   animations: GLTFAction[];
 };
@@ -98,9 +94,368 @@ export function SceneModel(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/scenes/scene-v1.glb') as GLTFResult;
   return (
     <group {...props} dispose={null}>
+      <group
+        name="Apple_iPhone_14_Pro_Space_Black"
+        position={[0.405, -0.346, -0.079]}
+        rotation={[-Math.PI / 2, 0, 0]}
+      >
+        <mesh
+          name="back_camera_border01"
+          castShadow
+          receiveShadow
+          geometry={nodes.back_camera_border01.geometry}
+          material={materials['plastic_black.002']}
+          position={[0.057, 0.226, -0.024]}
+          scale={0.045}
+        />
+        <mesh
+          name="back_camera_border_part_01"
+          castShadow
+          receiveShadow
+          geometry={nodes.back_camera_border_part_01.geometry}
+          material={materials['metal_black.002']}
+          position={[0.057, 0.226, -0.02]}
+          scale={0.045}
+        />
+        <mesh
+          name="back_camera_border_part_02"
+          castShadow
+          receiveShadow
+          geometry={nodes.back_camera_border_part_02.geometry}
+          material={materials['back_black.002']}
+          position={[0.057, 0.226, -0.025]}
+          scale={0.045}
+        />
+        <mesh
+          name="back_camera_border_part_03"
+          castShadow
+          receiveShadow
+          geometry={nodes.back_camera_border_part_03.geometry}
+          material={materials['mat_plastic_gray_dark.002']}
+          position={[0.059, 0.218, -0.019]}
+          scale={0.045}
+        />
+        <mesh
+          name="back_camera_glass01"
+          castShadow
+          receiveShadow
+          geometry={nodes.back_camera_glass01.geometry}
+          material={materials['glass.002']}
+          position={[0.057, 0.226, -0.026]}
+          scale={0.045}
+        />
+        <mesh
+          name="back_camera_lens01"
+          castShadow
+          receiveShadow
+          geometry={nodes.back_camera_lens01.geometry}
+          material={materials['camera_lens.002']}
+          position={[0.059, 0.225, -0.019]}
+          scale={0.045}
+        />
+        <mesh
+          name="back_camera_lens_glass01"
+          castShadow
+          receiveShadow
+          geometry={nodes.back_camera_lens_glass01.geometry}
+          material={materials['glass.002']}
+          position={[0.016, 0.226, -0.021]}
+          scale={0.045}
+        />
+        <mesh
+          name="back_flash_border01"
+          castShadow
+          receiveShadow
+          geometry={nodes.back_flash_border01.geometry}
+          material={materials['glass_falsh.002']}
+          position={[0.016, 0.287, -0.013]}
+          scale={0.045}
+        />
+        <mesh
+          name="back_flash_border_part_01"
+          castShadow
+          receiveShadow
+          geometry={nodes.back_flash_border_part_01.geometry}
+          material={materials['chrome.002']}
+          position={[0.016, 0.288, -0.01]}
+          scale={0.045}
+        />
+        <mesh
+          name="back_flash_glass01"
+          castShadow
+          receiveShadow
+          geometry={nodes.back_flash_glass01.geometry}
+          material={materials['glass.002']}
+          position={[0.016, 0.288, -0.016]}
+          scale={0.045}
+        />
+        <mesh
+          name="back_flash_lens01"
+          castShadow
+          receiveShadow
+          geometry={nodes.back_flash_lens01.geometry}
+          material={materials['mat_white.002']}
+          position={[0.016, 0.287, -0.012]}
+          scale={0.045}
+        />
+        <mesh
+          name="back_flash_lens02"
+          castShadow
+          receiveShadow
+          geometry={nodes.back_flash_lens02.geometry}
+          material={materials['glossy_yellow.002']}
+          position={[0.016, 0.287, -0.011]}
+          scale={0.045}
+        />
+        <mesh
+          name="back_glass01"
+          castShadow
+          receiveShadow
+          geometry={nodes.back_glass01.geometry}
+          material={materials['matte_glass.002']}
+          position={[0, 0, -0.013]}
+          scale={0.045}
+        />
+        <mesh
+          name="back_glass_part_01"
+          castShadow
+          receiveShadow
+          geometry={nodes.back_glass_part_01.geometry}
+          material={materials['glass.002']}
+          position={[0.056, 0.226, -0.017]}
+          scale={0.045}
+        />
+        <mesh
+          name="back_panel01"
+          castShadow
+          receiveShadow
+          geometry={nodes.back_panel01.geometry}
+          material={materials['mat_black.004']}
+          position={[0, 0, -0.012]}
+          scale={0.045}
+        />
+        <mesh
+          name="back_panel_logo01"
+          castShadow
+          receiveShadow
+          geometry={nodes.back_panel_logo01.geometry}
+          material={materials['chrome_logo_black.002']}
+          position={[-0.001, 0.004, -0.008]}
+          scale={0.045}
+        />
+        <mesh
+          name="back_panel_part_01"
+          castShadow
+          receiveShadow
+          geometry={nodes.back_panel_part_01.geometry}
+          material={materials['mat_black.004']}
+          position={[0.056, 0.226, -0.015]}
+          scale={0.045}
+        />
+        <mesh
+          name="back_panel_part_02"
+          castShadow
+          receiveShadow
+          geometry={nodes.back_panel_part_02.geometry}
+          material={materials['mat_black.005']}
+          position={[0.054, 0.214, -0.004]}
+          scale={0.045}
+        />
+        <mesh
+          name="body_side_panel01"
+          castShadow
+          receiveShadow
+          geometry={nodes.body_side_panel01.geometry}
+          material={materials['metal_black.002']}
+          position={[0, 0, 0.009]}
+          scale={0.045}
+        />
+        <mesh
+          name="body_side_panel_bolts01"
+          castShadow
+          receiveShadow
+          geometry={nodes.body_side_panel_bolts01.geometry}
+          material={materials['chrome.002']}
+          position={[0, -0.334, 0.009]}
+          scale={0.045}
+        />
+        <mesh
+          name="body_side_panel_button01"
+          castShadow
+          receiveShadow
+          geometry={nodes.body_side_panel_button01.geometry}
+          material={materials['metal_black.002']}
+          position={[0.163, 0.082, 0.009]}
+          scale={0.045}
+        />
+        <mesh
+          name="body_side_panel_buttons_part_01"
+          castShadow
+          receiveShadow
+          geometry={nodes.body_side_panel_buttons_part_01.geometry}
+          material={materials['metal_black.002']}
+          position={[-0.163, 0.099, 0.009]}
+          scale={0.045}
+        />
+        <mesh
+          name="body_side_panel_buttons_part_02"
+          castShadow
+          receiveShadow
+          geometry={nodes.body_side_panel_buttons_part_02.geometry}
+          material={materials['metal_black.002']}
+          position={[-0.162, 0.192, 0.009]}
+          scale={0.045}
+        />
+        <mesh
+          name="body_side_panel_dynamic01"
+          castShadow
+          receiveShadow
+          geometry={nodes.body_side_panel_dynamic01.geometry}
+          material={materials['glossy_black.002']}
+          position={[0.01, -0.332, 0.009]}
+          scale={0.045}
+        />
+        <mesh
+          name="body_side_panel_part_01"
+          castShadow
+          receiveShadow
+          geometry={nodes.body_side_panel_part_01.geometry}
+          material={materials['aluminium_black.002']}
+          position={[0, 0, 0.009]}
+          scale={0.045}
+        />
+        <mesh
+          name="body_side_panel_part_02"
+          castShadow
+          receiveShadow
+          geometry={nodes.body_side_panel_part_02.geometry}
+          material={materials['aluminium_black.002']}
+          position={[0.162, -0.091, 0.009]}
+          scale={0.045}
+        />
+        <mesh
+          name="body_side_panel_part_03"
+          castShadow
+          receiveShadow
+          geometry={nodes.body_side_panel_part_03.geometry}
+          material={materials['mat_black.005']}
+          position={[-0.002, -0.084, 0.008]}
+          scale={0.045}
+        />
+        <mesh
+          name="front_camera_border01"
+          castShadow
+          receiveShadow
+          geometry={nodes.front_camera_border01.geometry}
+          material={materials['mat_plastic_gray_dark.002']}
+          position={[0.034, 0.297, 0.021]}
+          scale={0.045}
+        />
+        <mesh
+          name="front_camera_border_part_01"
+          castShadow
+          receiveShadow
+          geometry={nodes.front_camera_border_part_01.geometry}
+          material={materials['back_black.002']}
+          position={[0.033, 0.297, 0.022]}
+          scale={0.045}
+        />
+        <mesh
+          name="front_camera_lens01"
+          castShadow
+          receiveShadow
+          geometry={nodes.front_camera_lens01.geometry}
+          material={materials['camera_lens.002']}
+          position={[0.034, 0.297, 0.02]}
+          scale={0.045}
+        />
+        <mesh
+          name="front_camera_part_01"
+          castShadow
+          receiveShadow
+          geometry={nodes.front_camera_part_01.geometry}
+          material={materials['mat_black.005']}
+          position={[0, 0.307, 0.021]}
+          scale={0.045}
+        />
+        <mesh
+          name="front_glass01"
+          castShadow
+          receiveShadow
+          geometry={nodes.front_glass01.geometry}
+          material={materials['glass.002']}
+          position={[0, 0, 0.026]}
+          scale={0.045}
+        />
+        <mesh
+          name="front_panel01"
+          castShadow
+          receiveShadow
+          geometry={nodes.front_panel01.geometry}
+          material={materials['back_black.002']}
+          position={[0, 0, 0.025]}
+          scale={0.045}
+        />
+        <mesh
+          name="screen01"
+          castShadow
+          receiveShadow
+          geometry={nodes.screen01.geometry}
+          material={materials['screen.002']}
+          position={[0, 0, 0.025]}
+          scale={0.045}
+        >
+          <ScreenHtml />
+        </mesh>
+        <mesh
+          name="screen_border01"
+          castShadow
+          receiveShadow
+          geometry={nodes.screen_border01.geometry}
+          material={materials['text_black.002']}
+          position={[0, 0, 0.025]}
+          scale={0.045}
+        />
+        <mesh
+          name="screen_part_01"
+          castShadow
+          receiveShadow
+          geometry={nodes.screen_part_01.geometry}
+          material={materials['mat_black.005']}
+          position={[0, 0.297, 0.024]}
+          scale={0.045}
+        />
+        <mesh
+          name="screen_part_03"
+          castShadow
+          receiveShadow
+          geometry={nodes.screen_part_03.geometry}
+          material={materials['mat_gray_dark.002']}
+          position={[-0.017, 0.297, 0.025]}
+          scale={0.045}
+        />
+        <mesh
+          name="usb01"
+          castShadow
+          receiveShadow
+          geometry={nodes.usb01.geometry}
+          material={materials['chrome.002']}
+          position={[0, -0.315, 0.009]}
+          scale={0.045}
+        />
+        <mesh
+          name="usb_part_01"
+          castShadow
+          receiveShadow
+          geometry={nodes.usb_part_01.geometry}
+          material={materials['gold.002']}
+          position={[0, -0.315, 0.008]}
+          scale={0.045}
+        />
+      </group>
       <spotLight
         name="Spot"
-        intensity={0.1}
+        intensity={2}
         angle={Math.PI / 8}
         penumbra={0.15}
         decay={2}
@@ -114,14 +469,14 @@ export function SceneModel(props: JSX.IntrinsicElements['group']) {
         makeDefault={false}
         far={1000}
         near={0.1}
-        fov={30}
+        fov={28.288}
         position={[0.858, 0.751, 1.624]}
         rotation={[-0.607, 0.412, 0.271]}
         scale={5}
       />
       <spotLight
         name="Spot001"
-        intensity={0.1}
+        intensity={0.5}
         angle={Math.PI / 8}
         penumbra={0.15}
         decay={2}
@@ -132,7 +487,7 @@ export function SceneModel(props: JSX.IntrinsicElements['group']) {
       />
       <spotLight
         name="Spot002"
-        intensity={0.1}
+        intensity={0.5}
         angle={Math.PI / 8}
         penumbra={0.15}
         decay={2}
@@ -147,7 +502,7 @@ export function SceneModel(props: JSX.IntrinsicElements['group']) {
         receiveShadow
         geometry={nodes.Plane.geometry}
         material={materials['Material.024']}
-        position={[0.229, -0.46, -0.138]}
+        position={[0.229, -0.658, -0.138]}
       />
       <mesh
         name="Plane001"
@@ -155,7 +510,7 @@ export function SceneModel(props: JSX.IntrinsicElements['group']) {
         receiveShadow
         geometry={nodes.Plane001.geometry}
         material={materials['Material.023']}
-        position={[0.229, -1.741, -0.138]}
+        position={[0.229, -0.44, -0.138]}
       />
       <mesh
         name="Plane002"
@@ -163,7 +518,7 @@ export function SceneModel(props: JSX.IntrinsicElements['group']) {
         receiveShadow
         geometry={nodes.Plane002.geometry}
         material={materials['Material.025']}
-        position={[-0.518, -0.164, -0.167]}
+        position={[-0.518, -0.187, -0.167]}
       />
       <mesh
         name="Plane003"
@@ -171,378 +526,7 @@ export function SceneModel(props: JSX.IntrinsicElements['group']) {
         receiveShadow
         geometry={nodes.Plane003.geometry}
         material={materials.metal_blue}
-        position={[-0.145, -0.343, -0.167]}
-      />
-      <mesh
-        name="back_camera_border01"
-        castShadow
-        receiveShadow
-        geometry={nodes.back_camera_border01.geometry}
-        material={materials['plastic_black.001']}
-        position={[0.308, -0.461, -0.388]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="back_camera_border_part_01"
-        castShadow
-        receiveShadow
-        geometry={nodes.back_camera_border_part_01.geometry}
-        material={materials['metal_black.001']}
-        position={[0.308, -0.457, -0.388]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="back_camera_border_part_02"
-        castShadow
-        receiveShadow
-        geometry={nodes.back_camera_border_part_02.geometry}
-        material={materials['back_black.001']}
-        position={[0.305, -0.461, -0.388]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="back_camera_border_part_03"
-        castShadow
-        receiveShadow
-        geometry={nodes.back_camera_border_part_03.geometry}
-        material={materials['mat_plastic_gray_dark.001']}
-        position={[0.302, -0.455, -0.385]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="back_camera_glass01"
-        castShadow
-        receiveShadow
-        geometry={nodes.back_camera_glass01.geometry}
-        material={materials['glass.001']}
-        position={[0.308, -0.462, -0.388]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="back_camera_lens01"
-        castShadow
-        receiveShadow
-        geometry={nodes.back_camera_lens01.geometry}
-        material={materials['camera_lens.001']}
-        position={[0.308, -0.454, -0.388]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="back_camera_lens_glass01"
-        castShadow
-        receiveShadow
-        geometry={nodes.back_camera_lens_glass01.geometry}
-        material={materials['glass.001']}
-        position={[0.248, -0.458, -0.387]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="back_flash_border01"
-        castShadow
-        receiveShadow
-        geometry={nodes.back_flash_border01.geometry}
-        material={materials['glass_falsh.001']}
-        position={[0.248, -0.45, -0.455]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="back_flash_border_part_01"
-        castShadow
-        receiveShadow
-        geometry={nodes.back_flash_border_part_01.geometry}
-        material={materials['chrome.001']}
-        position={[0.248, -0.447, -0.455]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="back_flash_glass01"
-        castShadow
-        receiveShadow
-        geometry={nodes.back_flash_glass01.geometry}
-        material={materials['glass.001']}
-        position={[0.248, -0.453, -0.455]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="back_flash_lens01"
-        castShadow
-        receiveShadow
-        geometry={nodes.back_flash_lens01.geometry}
-        material={materials['mat_white.001']}
-        position={[0.248, -0.448, -0.455]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="back_flash_lens02"
-        castShadow
-        receiveShadow
-        geometry={nodes.back_flash_lens02.geometry}
-        material={materials['glossy_yellow.001']}
-        position={[0.248, -0.448, -0.455]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="back_glass01"
-        castShadow
-        receiveShadow
-        geometry={nodes.back_glass01.geometry}
-        material={materials.matte_glass}
-        position={[0.246, -0.448, -0.264]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="back_glass_part_01"
-        castShadow
-        receiveShadow
-        geometry={nodes.back_glass_part_01.geometry}
-        material={materials['glass.001']}
-        position={[0.282, -0.453, -0.396]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="back_panel01"
-        castShadow
-        receiveShadow
-        geometry={nodes.back_panel01.geometry}
-        material={materials['mat_black.002']}
-        position={[0.245, -0.447, -0.258]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="back_panel_logo01"
-        castShadow
-        receiveShadow
-        geometry={nodes.back_panel_logo01.geometry}
-        material={materials['chrome_logo_black.001']}
-        position={[0.223, -0.447, -0.148]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="back_panel_part_01"
-        castShadow
-        receiveShadow
-        geometry={nodes.back_panel_part_01.geometry}
-        material={materials['mat_black.002']}
-        position={[0.275, -0.453, -0.394]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="back_panel_part_02"
-        castShadow
-        receiveShadow
-        geometry={nodes.back_panel_part_02.geometry}
-        material={materials['mat_black.003']}
-        position={[0.289, -0.438, -0.375]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="body_side_panel01"
-        castShadow
-        receiveShadow
-        geometry={nodes.body_side_panel01.geometry}
-        material={materials['metal_black.001']}
-        position={[0.194, -0.43, -0.047]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="body_side_panel_bolts01"
-        castShadow
-        receiveShadow
-        geometry={nodes.body_side_panel_bolts01.geometry}
-        material={materials['chrome.001']}
-        position={[0.229, -0.429, 0.229]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="body_side_panel_button01"
-        castShadow
-        receiveShadow
-        geometry={nodes.body_side_panel_button01.geometry}
-        material={materials['metal_black.001']}
-        position={[0.409, -0.419, -0.229]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="body_side_panel_buttons_part_01"
-        castShadow
-        receiveShadow
-        geometry={nodes.body_side_panel_buttons_part_01.geometry}
-        material={materials['metal_black.001']}
-        position={[0.048, -0.437, -0.247]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="body_side_panel_buttons_part_02"
-        castShadow
-        receiveShadow
-        geometry={nodes.body_side_panel_buttons_part_02.geometry}
-        material={materials['metal_black.001']}
-        position={[0.049, -0.439, -0.35]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="body_side_panel_dynamic01"
-        castShadow
-        receiveShadow
-        geometry={nodes.body_side_panel_dynamic01.geometry}
-        material={materials['glossy_black.001']}
-        position={[0.259, -0.428, 0.228]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="body_side_panel_part_01"
-        castShadow
-        receiveShadow
-        geometry={nodes.body_side_panel_part_01.geometry}
-        material={materials['aluminium_black.001']}
-        position={[0.229, -0.428, -0.138]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="body_side_panel_part_02"
-        castShadow
-        receiveShadow
-        geometry={nodes.body_side_panel_part_02.geometry}
-        material={materials['aluminium_black.001']}
-        position={[0.407, -0.419, -0.038]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="body_side_panel_part_03"
-        castShadow
-        receiveShadow
-        geometry={nodes.body_side_panel_part_03.geometry}
-        material={materials['mat_black.003']}
-        position={[0.229, -0.429, 0.119]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="front_camera_border01"
-        castShadow
-        receiveShadow
-        geometry={nodes.front_camera_border01.geometry}
-        material={materials['mat_plastic_gray_dark.001']}
-        position={[0.265, -0.412, -0.466]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="front_camera_border_part_01"
-        castShadow
-        receiveShadow
-        geometry={nodes.front_camera_border_part_01.geometry}
-        material={materials['back_black.001']}
-        position={[0.265, -0.41, -0.465]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="front_camera_lens01"
-        castShadow
-        receiveShadow
-        geometry={nodes.front_camera_lens01.geometry}
-        material={materials['camera_lens.001']}
-        position={[0.265, -0.413, -0.466]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="front_camera_part_01"
-        castShadow
-        receiveShadow
-        geometry={nodes.front_camera_part_01.geometry}
-        material={materials['mat_black.003']}
-        position={[0.246, -0.412, -0.477]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="front_glass01"
-        castShadow
-        receiveShadow
-        geometry={nodes.front_glass01.geometry}
-        material={materials['glass.001']}
-        position={[0.228, -0.409, -0.16]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="front_panel01"
-        castShadow
-        receiveShadow
-        geometry={nodes.front_panel01.geometry}
-        material={materials['back_black.001']}
-        position={[0.228, -0.41, -0.164]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-
-      <mesh
-        name="screen01"
-        castShadow
-        receiveShadow
-        geometry={nodes.screen01.geometry}
-        material={materials.screen}
-        position={[0.228, -0.41, -0.239]}
-        rotation={[-1.567, -0.051, 0]}
-      >
-        <Html
-          scale={0.1}
-          position={[0, 0, 0.08]}
-          style={{ background: 'red', width: 100, height: 300 }}
-          transform
-          occlude="blending"
-        >
-          <div
-            style={{
-              background: 'green',
-              zIndex: 10,
-            }}
-          >
-            test text
-          </div>
-          <p>test text</p>
-        </Html>
-      </mesh>
-
-      <mesh
-        name="screen_border01"
-        castShadow
-        receiveShadow
-        geometry={nodes.screen_border01.geometry}
-        material={materials['text_black.001']}
-        position={[0.228, -0.411, -0.137]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="screen_part_01"
-        castShadow
-        receiveShadow
-        geometry={nodes.screen_part_01.geometry}
-        material={materials['mat_black.003']}
-        position={[0.239, -0.409, -0.466]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="screen_part_03"
-        castShadow
-        receiveShadow
-        geometry={nodes.screen_part_03.geometry}
-        material={materials['mat_gray_dark.001']}
-        position={[0.209, -0.41, -0.466]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="usb01"
-        castShadow
-        receiveShadow
-        geometry={nodes.usb01.geometry}
-        material={materials['chrome.001']}
-        position={[0.229, -0.429, 0.211]}
-        rotation={[-1.567, -0.051, 0]}
-      />
-      <mesh
-        name="usb_part_01"
-        castShadow
-        receiveShadow
-        geometry={nodes.usb_part_01.geometry}
-        material={materials['gold.001']}
-        position={[0.229, -0.433, 0.21]}
-        rotation={[-1.567, -0.051, 0]}
+        position={[-0.145, -0.366, -0.167]}
       />
     </group>
   );

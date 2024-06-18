@@ -13,6 +13,7 @@ import { WebGLRenderer } from 'three';
 import { SceneModel } from './scene-v1.model';
 import { SceneConfiguration } from '../components/scene-configuration.component';
 import { SceneComponentProps } from '../types';
+import { useCameraControls } from '../hooks/use-camera-controls';
 
 const DEFAULT_DEVICE_SCREEN_IMAGE = '/screenshots/default.png' as const;
 
@@ -45,6 +46,8 @@ export const SceneV1: React.FC<SceneComponentProps> = (props) => {
     a.click();
   }, []);
 
+  const cameraControls = useCameraControls();
+
   return (
     <Stack direction="row" spacing={2}>
       <Paper
@@ -63,6 +66,8 @@ export const SceneV1: React.FC<SceneComponentProps> = (props) => {
             <SceneModel />
             <SceneConfiguration
               cameraName="x-scene-camera"
+              cameraPosition={cameraControls.position}
+              cameraRotation={cameraControls.rotation}
               screenImageSrc={
                 deviceScreenImageSrc || DEFAULT_DEVICE_SCREEN_IMAGE
               }
@@ -78,6 +83,8 @@ export const SceneV1: React.FC<SceneComponentProps> = (props) => {
         onDeleteImageClick={() => setDeviceScreenImageSrc(null)}
         onScreenshotClick={handleScreenshot}
         imageSrc={deviceScreenImageSrc}
+        onCameraMove={cameraControls.move}
+        onCameraRotate={cameraControls.rotate}
       />
     </Stack>
   );
