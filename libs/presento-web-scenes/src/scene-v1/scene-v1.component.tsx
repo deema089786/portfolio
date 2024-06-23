@@ -9,11 +9,13 @@ import {
 import { Stack } from '@mui/material';
 import { getSrcFromFile, uploadClintFileToApp } from '@presento/utils';
 import { WebGLRenderer } from 'three';
+import { Environment } from '@react-three/drei';
 
 import { SceneModel } from './scene-v1.model';
 import { SceneConfiguration } from '../components/scene-configuration.component';
 import { SceneComponentProps } from '../types';
 import { useCameraControls } from '../hooks/use-camera-controls';
+import { useDevicePositionControls } from '../hooks/use-device-position-controls.hook';
 
 const DEFAULT_DEVICE_SCREEN_IMAGE = '/screenshots/default.png' as const;
 
@@ -47,6 +49,7 @@ export const SceneV1: React.FC<SceneComponentProps> = (props) => {
   }, []);
 
   const cameraControls = useCameraControls();
+  const devicePositionControls = useDevicePositionControls();
 
   return (
     <Stack direction="row" spacing={2}>
@@ -63,15 +66,19 @@ export const SceneV1: React.FC<SceneComponentProps> = (props) => {
       >
         {renderEnabled && (
           <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
+            <Environment preset="city" environmentIntensity={0} />
             <SceneModel />
             <SceneConfiguration
               cameraName="x-scene-camera"
               cameraPosition={cameraControls.position}
               cameraRotation={cameraControls.rotation}
+              deviceName="x-device-group"
+              devicePosition={devicePositionControls.position}
+              deviceRotation={devicePositionControls.rotation}
               screenImageSrc={
                 deviceScreenImageSrc || DEFAULT_DEVICE_SCREEN_IMAGE
               }
-              screenMeshName="screen01"
+              screenMeshName="x-screen-view"
               onGL={handleGl}
             />
           </Canvas>
@@ -83,8 +90,8 @@ export const SceneV1: React.FC<SceneComponentProps> = (props) => {
         onDeleteImageClick={() => setDeviceScreenImageSrc(null)}
         onScreenshotClick={handleScreenshot}
         imageSrc={deviceScreenImageSrc}
-        onCameraMove={cameraControls.move}
-        onCameraRotate={cameraControls.rotate}
+        onDeviceMove={devicePositionControls.move}
+        onDeviceRotate={devicePositionControls.rotate}
       />
     </Stack>
   );

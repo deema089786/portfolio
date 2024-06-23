@@ -8,7 +8,7 @@ export const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const { title, description } = props;
   return (
     <Stack>
-      <Typography component="h1" variant="h4">
+      <Typography component="h1" variant="h2">
         {title}
       </Typography>
       {description && (

@@ -10,7 +10,7 @@ import RotateLeftIcon from '@mui/icons-material/Undo';
 import { SxProps } from '@mui/material';
 
 import { Button } from '../../atoms';
-import { SceneCameraControlsProps } from './scene-camera-controls.types';
+import { SceneDeviceControlsProps } from './scene-device-controls.types';
 import { Typography } from '../../core';
 
 const CONTROL_GROUP_SIZE = 76;
@@ -62,7 +62,7 @@ const ControlButton: React.FC<PropsWithChildren<ControlButtonProps>> = (
   );
 };
 
-export const SceneCameraControls: React.FC<SceneCameraControlsProps> = (
+export const SceneDeviceControls: React.FC<SceneDeviceControlsProps> = (
   props,
 ) => {
   const { onMove, onRotate } = props;
@@ -76,21 +76,40 @@ export const SceneCameraControls: React.FC<SceneCameraControlsProps> = (
             height: CONTROL_GROUP_SIZE,
           }}
         >
-          <ControlButton position="top" onClick={() => onMove('up')}>
+          <ControlButton position="top" onClick={() => onMove('+y')}>
             <ArrowUpIcon />
           </ControlButton>
-          <ControlButton position="bottom" onClick={() => onMove('down')}>
+          <ControlButton position="bottom" onClick={() => onMove('-y')}>
             <ArrowDownIcon />
           </ControlButton>
-          <ControlButton position="left" onClick={() => onMove('left')}>
+          <ControlButton position="left" onClick={() => onMove('-x')}>
             <ArrowLeftIcon />
           </ControlButton>
-          <ControlButton position="right" onClick={() => onMove('right')}>
+          <ControlButton position="right" onClick={() => onMove('+x')}>
             <ArrowRightIcon />
           </ControlButton>
         </Box>
         <Typography variant="caption" fontWeight="bold">
-          Move camera
+          Move device
+        </Typography>
+      </Stack>
+      <Stack spacing={0.5}>
+        <Box
+          sx={{
+            position: 'relative',
+            width: CONTROL_GROUP_SIZE,
+            height: CONTROL_GROUP_SIZE,
+          }}
+        >
+          <ControlButton position="top" onClick={() => onMove('-z')}>
+            <ArrowUpIcon />
+          </ControlButton>
+          <ControlButton position="bottom" onClick={() => onMove('+z')}>
+            <ArrowDownIcon />
+          </ControlButton>
+        </Box>
+        <Typography variant="caption" fontWeight="bold">
+          Move device
         </Typography>
       </Stack>
 
@@ -102,21 +121,41 @@ export const SceneCameraControls: React.FC<SceneCameraControlsProps> = (
             height: CONTROL_GROUP_SIZE,
           }}
         >
-          <ControlButton position="top" onClick={() => onRotate('up')}>
+          <ControlButton position="top" onClick={() => onRotate('-x')}>
             <RotateLeftIcon sx={{ transform: 'rotate(90deg)' }} />
           </ControlButton>
-          <ControlButton position="bottom" onClick={() => onRotate('down')}>
+          <ControlButton position="bottom" onClick={() => onRotate('+x')}>
             <RotateLeftIcon sx={{ transform: 'rotate(-90deg)' }} />
           </ControlButton>
-          <ControlButton position="left" onClick={() => onRotate('left')}>
+          <ControlButton position="left" onClick={() => onRotate('-y')}>
             <RotateLeftIcon />
           </ControlButton>
-          <ControlButton position="right" onClick={() => onRotate('right')}>
+          <ControlButton position="right" onClick={() => onRotate('+y')}>
             <RotateRightIcon />
           </ControlButton>
         </Box>
         <Typography variant="caption" fontWeight="bold">
-          Rotate camera
+          Rotate device
+        </Typography>
+      </Stack>
+
+      <Stack spacing={0.5}>
+        <Box
+          sx={{
+            position: 'relative',
+            width: CONTROL_GROUP_SIZE,
+            height: CONTROL_GROUP_SIZE,
+          }}
+        >
+          <ControlButton position="left" onClick={() => onRotate('-z')}>
+            <RotateRightIcon sx={{ transform: 'rotate(-90deg)' }} />
+          </ControlButton>
+          <ControlButton position="right" onClick={() => onRotate('+z')}>
+            <RotateLeftIcon sx={{ transform: 'rotate(90deg)' }} />
+          </ControlButton>
+        </Box>
+        <Typography variant="caption" fontWeight="bold">
+          Rotate device
         </Typography>
       </Stack>
     </Stack>

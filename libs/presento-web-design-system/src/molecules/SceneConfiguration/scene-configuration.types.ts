@@ -1,6 +1,5 @@
 import { SxProps } from '@mui/material';
-
-import { SceneCameraControlDirection } from '../SceneCameraControls/scene-camera-controls.types';
+import { Direction3D } from '@presento/presento-web-types';
 
 export type SceneConfigurationProps = {
   sx?: SxProps;
@@ -10,6 +9,6 @@ export type SceneConfigurationProps = {
   onScreenshotClick(): void;
   imageSrc: string | null;
 
-  onCameraMove(direction: SceneCameraControlDirection): void;
-  onCameraRotate(direction: SceneCameraControlDirection): void;
+  onDeviceMove(direction: Direction3D): void;
+  onDeviceRotate(direction: Direction3D): void;
 };

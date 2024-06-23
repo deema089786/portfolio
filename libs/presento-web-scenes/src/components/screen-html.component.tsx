@@ -4,26 +4,29 @@ import { Html } from '@react-three/drei';
 export const ScreenHtml: React.FC = () => {
   return (
     <Html
+      wrapperClass="wrapper-html"
       scale={1}
-      position={[0, 0, 0.001]}
+      position={[0, 0.01, -0.01]}
+      prepend
       style={{
-        background: 'red',
-        width: 280,
-        height: 550,
-        borderRadius: '20px',
+        background: 'black',
+        width: 259,
+        height: 563,
       }}
       transform
       occlude="blending"
+      zIndexRange={[100, 0]}
     >
       <div
+        id="x-screen-view-html"
         style={{
-          background: 'green',
-          zIndex: 10,
+          width: 259,
+          height: 563,
+          borderRadius: '20px',
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
         }}
-      >
-        test text
-      </div>
-      <p>test text</p>
+      />
     </Html>
   );
 };

@@ -5,7 +5,7 @@ import { Divider } from '@mui/material';
 import { SceneConfigurationProps } from './scene-configuration.types';
 import { Button, Paper } from '../../atoms';
 import { ImagePicker } from './components';
-import { SceneCameraControls } from '../SceneCameraControls';
+import { SceneDeviceControls } from '../SceneDeviceControls';
 
 export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
   props,
@@ -16,8 +16,8 @@ export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
     onDeleteImageClick,
     onScreenshotClick,
     imageSrc,
-    onCameraMove,
-    onCameraRotate,
+    onDeviceMove,
+    onDeviceRotate,
   } = props;
 
   return (
@@ -28,7 +28,7 @@ export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
         src={imageSrc}
       />
       <Divider />
-      <SceneCameraControls onMove={onCameraMove} onRotate={onCameraRotate} />
+      <SceneDeviceControls onMove={onDeviceMove} onRotate={onDeviceRotate} />
       <Button onClick={onScreenshotClick} size="large" variant="contained">
         Generate Image
       </Button>
