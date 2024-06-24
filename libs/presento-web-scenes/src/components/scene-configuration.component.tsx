@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { SoftShadows } from '@react-three/drei';
 import { useControls } from 'leva';
 import { Perf } from 'r3f-perf';
-import { useThree } from '@react-three/fiber';
+import { RootState, useThree } from '@react-three/fiber';
 import { WebGLRenderer } from 'three';
+import html2canvas from 'html2canvas';
 
 import { useSceneCamera } from '../hooks/use-scene-camera.hook';
 import { useDeviceScreenImage } from '../hooks/use-device-screen-image.hook';
@@ -20,7 +21,7 @@ type SceneConfigurationProps = {
 
   screenImageSrc: string;
   screenMeshName: string;
-  onGL(gl: WebGLRenderer): void;
+  onRootState(rootState: RootState): void;
 };
 
 export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
@@ -37,10 +38,10 @@ export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
 
     screenMeshName,
     screenImageSrc,
-    onGL,
+    onRootState,
   } = props;
 
-  const { gl } = useThree();
+  const rootState = useThree();
 
   // useSceneCamera({ cameraName, cameraPosition, cameraRotation });
   useSceneDevice({ deviceName, devicePosition, deviceRotation });
@@ -54,8 +55,8 @@ export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
   // });
 
   useEffect(() => {
-    onGL(gl);
-  }, [onGL, gl]);
+    onRootState(rootState);
+  }, [onRootState, rootState]);
 
   return (
     <>

@@ -5,9 +5,9 @@ export const ScreenHtml: React.FC = () => {
   return (
     <Html
       wrapperClass="wrapper-html"
-      scale={1}
+      // scale={1}
       position={[0, 0.01, -0.01]}
-      prepend
+      // prepend
       style={{
         background: 'black',
         width: 259,
@@ -16,6 +16,8 @@ export const ScreenHtml: React.FC = () => {
       transform
       occlude="blending"
       zIndexRange={[100, 0]}
+      fullscreen
+      center
     >
       <div
         id="x-screen-view-html"
@@ -26,7 +28,9 @@ export const ScreenHtml: React.FC = () => {
           backgroundPosition: 'center',
           backgroundSize: 'cover',
         }}
-      />
+      >
+        <img id="x-screen-view-html-img" width={100} height={100} />
+      </div>
     </Html>
   );
 };

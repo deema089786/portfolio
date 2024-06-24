@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useLoader, useThree } from '@react-three/fiber';
-import * as THREE from 'three';
-import { Mesh, TextureLoader, MeshStandardMaterial } from 'three';
+import { TextureLoader } from 'three';
 
 type UseDeviceScreenImageParams = {
   meshName: string;
@@ -44,5 +43,11 @@ export const useDeviceScreenImage = (params: UseDeviceScreenImageParams) => {
     const screenView = document.getElementById('x-screen-view-html');
     if (!screenView) return;
     screenView.style.backgroundImage = `url(${imageSrc})`;
+
+    const screenViewImg = document.getElementById(
+      'x-screen-view-html-img',
+    ) as HTMLImageElement;
+    if (!screenViewImg) return;
+    screenViewImg.src = imageSrc;
   }, [imageSrc]);
 };
