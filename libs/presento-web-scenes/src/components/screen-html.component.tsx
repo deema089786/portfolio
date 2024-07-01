@@ -1,17 +1,31 @@
 import React from 'react';
 import { Html } from '@react-three/drei';
 
-export const ScreenHtml: React.FC = () => {
+import {
+  DEFAULT_DEVICE_SCREEN_IMAGE,
+  SCENE_SCREEN_VIEW_HTML_CLASS,
+  SCENE_SCREEN_VIEW_HTML_ID,
+} from '../constants';
+
+const DEFAULT_WIDTH = 259 as const;
+const DEFAULT_HEIGHT = 563 as const;
+
+type ScreenHtmlProps = {
+  width?: number;
+  height?: number;
+};
+
+export const ScreenHtml: React.FC<ScreenHtmlProps> = (props) => {
+  const { width = DEFAULT_WIDTH, height = DEFAULT_HEIGHT } = props;
+
   return (
     <Html
-      wrapperClass="wrapper-html"
-      // scale={1}
+      wrapperClass={SCENE_SCREEN_VIEW_HTML_CLASS}
       position={[0, 0.01, -0.01]}
-      // prepend
       style={{
         background: 'black',
-        width: 259,
-        height: 563,
+        width,
+        height,
       }}
       transform
       occlude="blending"
@@ -20,17 +34,15 @@ export const ScreenHtml: React.FC = () => {
       center
     >
       <div
-        id="x-screen-view-html"
+        id={SCENE_SCREEN_VIEW_HTML_ID}
         style={{
-          width: 259,
-          height: 563,
-          borderRadius: '20px',
+          width: '100%',
+          height: '100%',
           backgroundPosition: 'center',
           backgroundSize: 'cover',
+          backgroundImage: `url(${DEFAULT_DEVICE_SCREEN_IMAGE})`,
         }}
-      >
-        <img id="x-screen-view-html-img" width={100} height={100} />
-      </div>
+      />
     </Html>
   );
 };

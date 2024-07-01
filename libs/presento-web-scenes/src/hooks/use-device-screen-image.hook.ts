@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useLoader, useThree } from '@react-three/fiber';
 import { TextureLoader } from 'three';
 
+import { SCENE_SCREEN_VIEW_HTML_ID } from '../constants';
+
 type UseDeviceScreenImageParams = {
   meshName: string;
   imageSrc: string;
@@ -40,14 +42,8 @@ export const useDeviceScreenImage = (params: UseDeviceScreenImageParams) => {
 
   // Render to HTML
   useEffect(() => {
-    const screenView = document.getElementById('x-screen-view-html');
+    const screenView = document.getElementById(SCENE_SCREEN_VIEW_HTML_ID);
     if (!screenView) return;
     screenView.style.backgroundImage = `url(${imageSrc})`;
-
-    const screenViewImg = document.getElementById(
-      'x-screen-view-html-img',
-    ) as HTMLImageElement;
-    if (!screenViewImg) return;
-    screenViewImg.src = imageSrc;
   }, [imageSrc]);
 };

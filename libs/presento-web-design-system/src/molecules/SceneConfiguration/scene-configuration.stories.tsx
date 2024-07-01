@@ -14,6 +14,7 @@ export const Default: Story = {
     onUploadImageClick: () => undefined,
     onDeleteImageClick: () => undefined,
     imageSrc: null,
+    cameraOrientation: 'horizontal',
   },
   render: (props) => (
     <div style={{ width: 400 }}>

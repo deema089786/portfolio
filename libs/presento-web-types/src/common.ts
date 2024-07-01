@@ -6,3 +6,5 @@ export type Direction3D =
   | '+x' // right
   | '-z' // forward
   | '+z'; // backward
+
+export type Orientation = 'vertical' | 'horizontal';

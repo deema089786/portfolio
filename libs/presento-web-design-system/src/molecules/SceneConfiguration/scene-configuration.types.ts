@@ -1,5 +1,5 @@
 import { SxProps } from '@mui/material';
-import { Direction3D } from '@presento/presento-web-types';
+import { Direction3D, Orientation } from '@presento/presento-web-types';
 
 export type SceneConfigurationProps = {
   sx?: SxProps;
@@ -11,4 +11,7 @@ export type SceneConfigurationProps = {
 
   onDeviceMove(direction: Direction3D): void;
   onDeviceRotate(direction: Direction3D): void;
+
+  cameraOrientation: Orientation;
+  onCameraOrientationChange?(orientation: Orientation): void;
 };

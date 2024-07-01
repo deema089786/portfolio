@@ -4,7 +4,7 @@ import { Divider } from '@mui/material';
 
 import { SceneConfigurationProps } from './scene-configuration.types';
 import { Button, Paper } from '../../atoms';
-import { ImagePicker } from './components';
+import { ImagePicker, CameraOrientationSelector } from './components';
 import { SceneDeviceControls } from '../SceneDeviceControls';
 
 export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
@@ -18,6 +18,8 @@ export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
     imageSrc,
     onDeviceMove,
     onDeviceRotate,
+    cameraOrientation,
+    onCameraOrientationChange,
   } = props;
 
   return (
@@ -26,6 +28,11 @@ export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
         onUploadClick={onUploadImageClick}
         onDeleteClick={onDeleteImageClick}
         src={imageSrc}
+      />
+      <Divider />
+      <CameraOrientationSelector
+        orientation={cameraOrientation}
+        onChange={onCameraOrientationChange}
       />
       <Divider />
       <SceneDeviceControls onMove={onDeviceMove} onRotate={onDeviceRotate} />
