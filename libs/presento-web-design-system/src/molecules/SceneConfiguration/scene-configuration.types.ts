@@ -3,15 +3,30 @@ import { Direction3D, Orientation } from '@presento/presento-web-types';
 
 export type SceneConfigurationProps = {
   sx?: SxProps;
-
-  onUploadImageClick(): void;
-  onDeleteImageClick(): void;
   onScreenshotClick(): void;
-  imageSrc: string | null;
 
-  onDeviceMove(direction: Direction3D): void;
-  onDeviceRotate(direction: Direction3D): void;
+  imageSelector?: {
+    enabled: boolean;
+    imageSrc: string | null;
+    onUploadClick(): void;
+    onDeleteClick(): void;
+  };
 
-  cameraOrientation: Orientation;
-  onCameraOrientationChange?(orientation: Orientation): void;
+  devicePosition?: {
+    enabled: boolean;
+    onMove(direction: Direction3D): void;
+    onRotate(direction: Direction3D): void;
+  };
+
+  cameraOrientation?: {
+    enabled: boolean;
+    orientation: Orientation;
+    onChange(orientation: Orientation): void;
+  };
+
+  cameraZoom?: {
+    enabled: boolean;
+    value: number;
+    onChange(value: number): void;
+  };
 };

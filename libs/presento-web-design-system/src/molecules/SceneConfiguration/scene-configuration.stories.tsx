@@ -11,13 +11,34 @@ type Story = StoryObj<typeof SceneConfiguration>;
 
 export const Default: Story = {
   args: {
-    onUploadImageClick: () => undefined,
-    onDeleteImageClick: () => undefined,
-    imageSrc: null,
-    cameraOrientation: 'horizontal',
+    onScreenshotClick: () => undefined,
+    imageSelector: {
+      enabled: true,
+      imageSrc: null,
+      onUploadClick: () => undefined,
+      onDeleteClick: () => undefined,
+    },
+
+    devicePosition: {
+      enabled: true,
+      onMove: () => undefined,
+      onRotate: () => undefined,
+    },
+
+    cameraOrientation: {
+      enabled: true,
+      orientation: 'horizontal',
+      onChange: () => undefined,
+    },
+
+    cameraZoom: {
+      enabled: true,
+      value: 1.5,
+      onChange: () => undefined,
+    },
   },
   render: (props) => (
-    <div style={{ width: 400 }}>
+    <div style={{ width: 350 }}>
       <SceneConfiguration {...props} />
     </div>
   ),

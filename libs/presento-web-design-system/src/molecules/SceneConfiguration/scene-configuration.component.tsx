@@ -4,7 +4,11 @@ import { Divider } from '@mui/material';
 
 import { SceneConfigurationProps } from './scene-configuration.types';
 import { Button, Paper } from '../../atoms';
-import { ImagePicker, CameraOrientationSelector } from './components';
+import {
+  ImagePicker,
+  CameraOrientationSelector,
+  CameraZoomSlider,
+} from './components';
 import { SceneDeviceControls } from '../SceneDeviceControls';
 
 export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
@@ -12,30 +16,40 @@ export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
 ) => {
   const {
     sx,
-    onUploadImageClick,
-    onDeleteImageClick,
     onScreenshotClick,
-    imageSrc,
-    onDeviceMove,
-    onDeviceRotate,
+    devicePosition,
+    imageSelector,
     cameraOrientation,
-    onCameraOrientationChange,
+    cameraZoom,
   } = props;
 
   return (
-    <Stack p={1} spacing={2} component={Paper} sx={sx}>
-      <ImagePicker
-        onUploadClick={onUploadImageClick}
-        onDeleteClick={onDeleteImageClick}
-        src={imageSrc}
-      />
-      <Divider />
-      <CameraOrientationSelector
-        orientation={cameraOrientation}
-        onChange={onCameraOrientationChange}
-      />
-      <Divider />
-      <SceneDeviceControls onMove={onDeviceMove} onRotate={onDeviceRotate} />
+    <Stack p={1} spacing={2} component={Paper} sx={sx} divider={<Divider />}>
+      {imageSelector?.enabled && (
+        <ImagePicker
+          onUploadClick={imageSelector.onUploadClick}
+          onDeleteClick={imageSelector.onDeleteClick}
+          src={imageSelector.imageSrc}
+        />
+      )}
+      {cameraOrientation?.enabled && (
+        <CameraOrientationSelector
+          orientation={cameraOrientation.orientation}
+          onChange={cameraOrientation.onChange}
+        />
+      )}
+      {cameraZoom?.enabled && (
+        <CameraZoomSlider
+          value={cameraZoom.value}
+          onChange={cameraZoom.onChange}
+        />
+      )}
+      {devicePosition?.enabled && (
+        <SceneDeviceControls
+          onMove={devicePosition.onMove}
+          onRotate={devicePosition.onRotate}
+        />
+      )}
       <Button onClick={onScreenshotClick} size="large" variant="contained">
         Generate Image
       </Button>

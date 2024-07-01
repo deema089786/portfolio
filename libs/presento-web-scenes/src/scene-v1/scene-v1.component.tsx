@@ -12,23 +12,23 @@ import { Environment } from '@react-three/drei';
 import { SceneModel } from './scene-v1.model';
 import { SceneConfiguration } from '../components/scene-configuration.component';
 import { SceneComponentProps } from '../types';
-import { useCameraControls } from '../hooks/use-camera-controls';
 import { useDevicePositionControls } from '../hooks/use-device-position-controls.hook';
 import { DEFAULT_DEVICE_SCREEN_IMAGE } from '../constants';
 import { useCameraOrientation } from '../hooks/use-camera-orientation';
 import { useGenerateSceneScreenshot } from '../hooks/use-generate-scene-screenshot.hook';
 import { useDeviceScreenImageState } from '../hooks/use-device-screen-image-state.hook';
+import { useCameraZoom } from '../hooks/use-camera-zoom';
 
 export const SceneV1: React.FC<SceneComponentProps> = (props) => {
   const { renderEnabled = true } = props;
 
   const rootStateRef = useRef<RootState | null>(null);
 
-  const cameraControls = useCameraControls();
   const cameraOrientation = useCameraOrientation();
   const devicePositionControls = useDevicePositionControls();
   const generateSceneScreenshot = useGenerateSceneScreenshot({ rootStateRef });
   const imageState = useDeviceScreenImageState();
+  const cameraZoom = useCameraZoom();
 
   return (
     <Stack direction="row" spacing={2} justifyContent="center">
@@ -50,6 +50,7 @@ export const SceneV1: React.FC<SceneComponentProps> = (props) => {
               deviceName="x-device-group"
               devicePosition={devicePositionControls.position}
               deviceRotation={devicePositionControls.rotation}
+              cameraZoomValue={cameraZoom.value}
               screenImageSrc={
                 imageState.imageSrc || DEFAULT_DEVICE_SCREEN_IMAGE
               }
@@ -62,14 +63,28 @@ export const SceneV1: React.FC<SceneComponentProps> = (props) => {
 
       <SceneConfigurationComponent
         sx={{ flex: 1, maxWidth: 400 }}
-        onUploadImageClick={imageState.selectImageSrc}
-        onDeleteImageClick={imageState.reset}
         onScreenshotClick={generateSceneScreenshot}
-        imageSrc={imageState.imageSrc}
-        onDeviceMove={devicePositionControls.move}
-        onDeviceRotate={devicePositionControls.rotate}
-        cameraOrientation={cameraOrientation.orientation}
-        onCameraOrientationChange={cameraOrientation.update}
+        imageSelector={{
+          enabled: true,
+          imageSrc: imageState.imageSrc,
+          onUploadClick: imageState.selectImageSrc,
+          onDeleteClick: imageState.reset,
+        }}
+        cameraOrientation={{
+          enabled: true,
+          orientation: cameraOrientation.orientation,
+          onChange: cameraOrientation.update,
+        }}
+        cameraZoom={{
+          enabled: true,
+          value: cameraZoom.value,
+          onChange: cameraZoom.setValue,
+        }}
+        devicePosition={{
+          enabled: true,
+          onMove: devicePositionControls.move,
+          onRotate: devicePositionControls.rotate,
+        }}
       />
     </Stack>
   );
