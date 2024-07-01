@@ -17,7 +17,7 @@ export const SceneCard: React.FC<SceneCardProps> = (props) => {
           '&:hover': {
             cursor: 'pointer',
             '& .scene-card-image': {
-              backgroundSize: '105%',
+              backgroundSize: '115%',
               transition: '300ms',
             },
           },
@@ -26,16 +26,14 @@ export const SceneCard: React.FC<SceneCardProps> = (props) => {
         <Box
           className="scene-card-image"
           sx={{
-            backgroundSize: '100%',
+            backgroundSize: '105%',
             backgroundPosition: 'center',
+            backgroundImage: `url(${imageSrc})`,
             transition: '1000ms',
             height: 140,
             borderTopLeftRadius: 16,
             borderTopRightRadius: 16,
-            // borderTopLeftRadius: theme.spacing(2),
-            // borderTopRightRadius: theme.spacing(2),
           }}
-          style={{ backgroundImage: `url(${imageSrc})` }}
         />
         <Stack p={2} spacing={0.5}>
           <Typography variant="subtitle1" component="p">
