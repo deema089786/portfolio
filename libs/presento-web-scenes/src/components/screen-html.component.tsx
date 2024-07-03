@@ -30,8 +30,6 @@ export const ScreenHtml: React.FC<ScreenHtmlProps> = (props) => {
       transform
       occlude="blending"
       zIndexRange={[100, 0]}
-      fullscreen
-      center
     >
       <div
         id={SCENE_SCREEN_VIEW_HTML_ID}

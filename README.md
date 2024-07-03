@@ -2,7 +2,8 @@ Start libs/design-system storybook
 npx nx run presento-web-design-system:storybook
 
 Generate React Component from the .glb file:
-npx gltfjsx scenes/scene-v1.glb --types --shadows --keepnames --root
+`npx gltfjsx apps/presento-web/public/scenes/scene-v2.glb --types --shadows --keepnames --root`
+
 
 1. update paths
 2. update lights intensity
