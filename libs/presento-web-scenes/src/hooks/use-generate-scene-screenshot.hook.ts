@@ -1,6 +1,6 @@
 import { RootState } from '@react-three/fiber';
 import { MutableRefObject, useCallback } from 'react';
-import domtoimage from 'dom-to-image-more';
+import { toPng } from 'html-to-image';
 
 import { SCENE_SCREEN_VIEW_HTML_CLASS } from '../constants';
 
@@ -8,7 +8,10 @@ const getDeviceContent = async (
   htmlElement: HTMLElement,
 ): Promise<string | null> => {
   try {
-    const dataUrl: string = await domtoimage.toPng(htmlElement);
+    const dataUrl: string = await toPng(htmlElement);
+    const image = new Image();
+    image.src = dataUrl;
+    document.body.appendChild(image);
     return dataUrl;
   } catch (error) {
     console.error(error);
