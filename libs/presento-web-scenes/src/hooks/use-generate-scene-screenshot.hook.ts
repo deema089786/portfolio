@@ -9,9 +9,9 @@ const getDeviceContent = async (
 ): Promise<string | null> => {
   try {
     const dataUrl: string = await toPng(htmlElement);
-    const image = new Image();
-    image.src = dataUrl;
-    document.body.appendChild(image);
+    // const image = new Image();
+    // image.src = dataUrl;
+    // document.body.appendChild(image);
     return dataUrl;
   } catch (error) {
     console.error(error);
