@@ -1,5 +1,9 @@
 import { SxProps } from '@mui/material';
-import { Direction3D, Orientation } from '@presento/presento-web-types';
+import {
+  Direction2D,
+  Direction3D,
+  Orientation,
+} from '@presento/presento-web-types';
 
 export type SceneConfigurationProps = {
   sx?: SxProps;
@@ -28,5 +32,10 @@ export type SceneConfigurationProps = {
     enabled: boolean;
     value: number;
     onChange(value: number): void;
+  };
+
+  cameraPosition?: {
+    enabled: boolean;
+    onChange(direction: Direction2D): void;
   };
 };

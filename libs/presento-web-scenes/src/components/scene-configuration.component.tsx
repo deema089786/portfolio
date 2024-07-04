@@ -55,5 +55,10 @@ export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
   }, [screenImageSrc]);
   // endregion
 
-  return <SoftShadows size={100} focus={2} samples={20} />;
+  return (
+    <>
+      <SoftShadows size={100} focus={2} samples={20} />
+      {/*<OrbitControls />*/}
+    </>
+  );
 };

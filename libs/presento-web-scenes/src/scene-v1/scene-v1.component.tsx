@@ -13,7 +13,7 @@ import { SceneModel } from './scene-v1.model';
 import { SceneConfiguration } from '../components/scene-configuration.component';
 import { SceneComponentProps } from '../types';
 import { useDevicePositionControls } from '../hooks/use-device-position-controls.hook';
-import { DEFAULT_DEVICE_SCREEN_IMAGE } from '../constants';
+import { DEFAULT_DEVICE_SCREEN_IMAGE, DEFAULT_DPR } from '../constants';
 import { useCameraOrientation } from '../hooks/use-camera-orientation';
 import { useGenerateSceneScreenshot } from '../hooks/use-generate-scene-screenshot.hook';
 import { useDeviceScreenImageState } from '../hooks/use-device-screen-image-state.hook';
@@ -24,7 +24,7 @@ export const SceneV1: React.FC<SceneComponentProps> = (props) => {
 
   const rootStateRef = useRef<RootState | null>(null);
 
-  const cameraOrientation = useCameraOrientation();
+  const cameraOrientation = useCameraOrientation({ rootStateRef });
   const devicePositionControls = useDevicePositionControls();
   const generateSceneScreenshot = useGenerateSceneScreenshot({ rootStateRef });
   const imageState = useDeviceScreenImageState();
@@ -43,7 +43,12 @@ export const SceneV1: React.FC<SceneComponentProps> = (props) => {
         }}
       >
         {renderEnabled && (
-          <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
+          <Canvas
+            shadows
+            gl={{ preserveDrawingBuffer: true }}
+            dpr={DEFAULT_DPR}
+            frameloop="demand"
+          >
             <Environment preset="city" environmentIntensity={0} />
             <SceneModel />
             <SceneConfiguration

@@ -1,5 +1,6 @@
-import { useCallback, useState } from 'react';
+import { MutableRefObject, useCallback, useState } from 'react';
 import { Orientation } from '@presento/presento-web-types';
+import { RootState } from '@react-three/fiber';
 
 const RESOLUTIONS: Record<Orientation, { width: number; height: number }> = {
   horizontal: { width: 1024, height: 576 },
@@ -10,11 +11,10 @@ const DEFAULT_ORIENTATION: Orientation = 'horizontal';
 
 type UseCameraOrientationParams = {
   initialOrientation?: Orientation;
+  rootStateRef: MutableRefObject<RootState | null>;
 };
-export const useCameraOrientation = (
-  params: UseCameraOrientationParams = {},
-) => {
-  const { initialOrientation = DEFAULT_ORIENTATION } = params;
+export const useCameraOrientation = (params: UseCameraOrientationParams) => {
+  const { initialOrientation = DEFAULT_ORIENTATION, rootStateRef } = params;
   const [orientation, setOrientation] =
     useState<Orientation>(initialOrientation);
   const [resolution, setResolution] = useState<{
@@ -39,8 +39,10 @@ export const useCameraOrientation = (
         setResolution(RESOLUTIONS['horizontal']);
         return;
       }
+
+      rootStateRef.current?.invalidate();
     },
-    [orientation],
+    [orientation, rootStateRef],
   );
 
   return { orientation, resolution, update };

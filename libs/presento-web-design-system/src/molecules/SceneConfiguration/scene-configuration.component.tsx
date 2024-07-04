@@ -8,6 +8,7 @@ import {
   ImagePicker,
   CameraOrientationSelector,
   CameraZoomSlider,
+  CameraPositionControls,
 } from './components';
 import { SceneDeviceControls } from '../SceneDeviceControls';
 
@@ -21,6 +22,7 @@ export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
     imageSelector,
     cameraOrientation,
     cameraZoom,
+    cameraPosition,
   } = props;
 
   return (
@@ -43,6 +45,9 @@ export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
           value={cameraZoom.value}
           onChange={cameraZoom.onChange}
         />
+      )}
+      {cameraPosition?.enabled && (
+        <CameraPositionControls onChange={cameraPosition.onChange} />
       )}
       {devicePosition?.enabled && (
         <SceneDeviceControls

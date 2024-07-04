@@ -13,20 +13,22 @@ import { SceneModel } from './scene-v2.model';
 import { SceneConfiguration } from '../components/scene-configuration.component';
 import { SceneComponentProps } from '../types';
 import { useDevicePositionControls } from '../hooks/use-device-position-controls.hook';
-import { DEFAULT_DEVICE_SCREEN_IMAGE } from '../constants';
+import { DEFAULT_DEVICE_SCREEN_IMAGE, DEFAULT_DPR } from '../constants';
 import { useCameraOrientation } from '../hooks/use-camera-orientation';
 import { useGenerateSceneScreenshot } from '../hooks/use-generate-scene-screenshot.hook';
 import { useDeviceScreenImageState } from '../hooks/use-device-screen-image-state.hook';
 import { useCameraZoom } from '../hooks/use-camera-zoom';
+import { useCameraPosition } from '../hooks/use-camera-position';
 
 export const SceneV2: React.FC<SceneComponentProps> = (props) => {
   const { renderEnabled = true } = props;
 
   const rootStateRef = useRef<RootState | null>(null);
-  const cameraOrientation = useCameraOrientation();
+  const cameraOrientation = useCameraOrientation({ rootStateRef });
   const generateSceneScreenshot = useGenerateSceneScreenshot({ rootStateRef });
   const imageState = useDeviceScreenImageState();
   const cameraZoom = useCameraZoom();
+  const cameraPosition = useCameraPosition({ rootStateRef });
 
   return (
     <Stack direction="row" spacing={2} justifyContent="center">
@@ -41,7 +43,12 @@ export const SceneV2: React.FC<SceneComponentProps> = (props) => {
         }}
       >
         {renderEnabled && (
-          <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
+          <Canvas
+            shadows
+            gl={{ preserveDrawingBuffer: true }}
+            dpr={DEFAULT_DPR}
+            frameloop="demand"
+          >
             <Environment preset="city" environmentIntensity={0} />
             <SceneModel />
             <SceneConfiguration
@@ -77,6 +84,10 @@ export const SceneV2: React.FC<SceneComponentProps> = (props) => {
           enabled: true,
           value: cameraZoom.value,
           onChange: cameraZoom.setValue,
+        }}
+        cameraPosition={{
+          enabled: true,
+          onChange: cameraPosition.move,
         }}
       />
     </Stack>

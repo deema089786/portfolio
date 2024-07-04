@@ -36,6 +36,11 @@ export const Default: Story = {
       value: 1.5,
       onChange: () => undefined,
     },
+
+    cameraPosition: {
+      enabled: true,
+      onChange: () => undefined,
+    },
   },
   render: (props) => (
     <div style={{ width: 350 }}>
