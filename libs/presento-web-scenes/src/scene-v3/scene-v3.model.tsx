@@ -1225,7 +1225,7 @@ export function SceneModel(props: JSX.IntrinsicElements['group']) {
           position={[0.003, 0, 0.542]}
         >
           <meshStandardMaterial transparent opacity={0} />
-          <ScreenHtml />
+          <ScreenHtml device="iphone-14" />
         </mesh>
         <mesh
           name="screen_border01001"

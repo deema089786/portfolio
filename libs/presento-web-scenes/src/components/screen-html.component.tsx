@@ -7,25 +7,43 @@ import {
   SCENE_SCREEN_VIEW_HTML_ID,
 } from '../constants';
 
-const DEFAULT_WIDTH = 259 as const;
-const DEFAULT_HEIGHT = 563 as const;
+type Device = 'iphone-14' | 'mac-book-pro-m1-14';
 
 type ScreenHtmlProps = {
   width?: number;
   height?: number;
+  device: Device;
+};
+
+const settings: Record<
+  Device,
+  {
+    size: { width: number; height: number };
+    position: [number, number, number];
+  }
+> = {
+  'iphone-14': {
+    size: { width: 259, height: 563 },
+    position: [0, 0.01, -0.01],
+  },
+  'mac-book-pro-m1-14': {
+    size: { width: 620, height: 402 },
+    position: [0, 0, 0],
+  },
 };
 
 export const ScreenHtml: React.FC<ScreenHtmlProps> = (props) => {
-  const { width = DEFAULT_WIDTH, height = DEFAULT_HEIGHT } = props;
+  const { width, height, device } = props;
+  const { size, position } = settings[device];
 
   return (
     <Html
       wrapperClass={SCENE_SCREEN_VIEW_HTML_CLASS}
-      position={[0, 0.01, -0.01]}
+      position={position}
       style={{
         background: 'black',
-        width,
-        height,
+        width: width || size.width,
+        height: height || size.height,
       }}
       transform
       occlude="blending"

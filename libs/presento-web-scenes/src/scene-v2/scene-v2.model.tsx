@@ -1432,7 +1432,7 @@ export function SceneModel(props: JSX.IntrinsicElements['group']) {
         <mesh name="usb_part_01" castShadow receiveShadow geometry={nodes.usb_part_01.geometry} material={materials['gold.001']} position={[0.003, -6.951, 0.167]} />
         <mesh name="x-screen-view" geometry={nodes['x-screen-view'].geometry} position={[0.003, 0, 0.542]}>
           <meshStandardMaterial transparent opacity={0}/>
-          <ScreenHtml/></mesh>
+          <ScreenHtml device="iphone-14"/></mesh>
       </group>
       <group name="Apple_iPhone_14_Pro_Space_Black001" position={[0.261, 0.021, -0.29]} rotation={[Math.PI / 2, 0, 0]} scale={0.018}>
         <mesh name="back_camera_border01001" castShadow receiveShadow geometry={nodes.back_camera_border01001.geometry} material={materials['plastic_black.002']} position={[1.253, 4.984, -0.535]} />

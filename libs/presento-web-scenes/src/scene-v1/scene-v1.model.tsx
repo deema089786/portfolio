@@ -436,7 +436,7 @@ export function SceneModel(props: JSX.IntrinsicElements['group']) {
           scale={0.068}
         >
           <meshStandardMaterial transparent opacity={0} />
-          <ScreenHtml />
+          <ScreenHtml device="iphone-14" />
         </mesh>
       </group>
       <PerspectiveCamera
