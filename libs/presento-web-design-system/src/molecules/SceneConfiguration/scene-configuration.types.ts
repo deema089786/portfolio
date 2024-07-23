@@ -3,6 +3,7 @@ import {
   Direction2D,
   Direction3D,
   Orientation,
+  RenderQualityValue,
 } from '@presento/presento-web-types';
 
 export type SceneConfigurationProps = {
@@ -32,6 +33,12 @@ export type SceneConfigurationProps = {
     enabled: boolean;
     value: number;
     onChange(value: number): void;
+  };
+
+  renderQuality?: {
+    enabled: boolean;
+    value: RenderQualityValue;
+    onChange(value: RenderQualityValue): void;
   };
 
   cameraPosition?: {

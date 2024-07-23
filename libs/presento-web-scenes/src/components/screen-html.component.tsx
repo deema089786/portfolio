@@ -10,8 +10,6 @@ import {
 type Device = 'iphone-14' | 'mac-book-pro-m1-14';
 
 type ScreenHtmlProps = {
-  width?: number;
-  height?: number;
   device: Device;
 };
 
@@ -20,21 +18,24 @@ const settings: Record<
   {
     size: { width: number; height: number };
     position: [number, number, number];
+    scale: number;
   }
 > = {
   'iphone-14': {
-    size: { width: 259, height: 563 },
+    size: { width: 1170, height: 2532 }, //  259 563
     position: [0, 0.01, -0.01],
+    scale: 0.2215,
   },
   'mac-book-pro-m1-14': {
-    size: { width: 620, height: 402 },
+    size: { width: 3024, height: 1964 },
     position: [0, 0, 0],
+    scale: 0.00625,
   },
 };
 
 export const ScreenHtml: React.FC<ScreenHtmlProps> = (props) => {
-  const { width, height, device } = props;
-  const { size, position } = settings[device];
+  const { device } = props;
+  const { size, position, scale } = settings[device];
 
   return (
     <Html
@@ -42,12 +43,14 @@ export const ScreenHtml: React.FC<ScreenHtmlProps> = (props) => {
       position={position}
       style={{
         background: 'black',
-        width: width || size.width,
-        height: height || size.height,
+        width: size.width,
+        height: size.height,
       }}
       transform
       occlude="blending"
       zIndexRange={[100, 0]}
+      scale={scale}
+      prepend
     >
       <div
         id={SCENE_SCREEN_VIEW_HTML_ID}

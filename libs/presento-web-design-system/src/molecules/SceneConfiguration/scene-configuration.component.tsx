@@ -11,6 +11,7 @@ import {
   CameraPositionControls,
 } from './components';
 import { SceneDeviceControls } from '../SceneDeviceControls';
+import { RenderQuality } from './components/RenderQuality';
 
 export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
   props,
@@ -23,6 +24,7 @@ export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
     cameraOrientation,
     cameraZoom,
     cameraPosition,
+    renderQuality,
   } = props;
 
   return (
@@ -32,6 +34,12 @@ export const SceneConfiguration: React.FC<SceneConfigurationProps> = (
           onUploadClick={imageSelector.onUploadClick}
           onDeleteClick={imageSelector.onDeleteClick}
           src={imageSelector.imageSrc}
+        />
+      )}
+      {renderQuality?.enabled && (
+        <RenderQuality
+          value={renderQuality.value}
+          onChange={renderQuality.onChange}
         />
       )}
       {cameraOrientation?.enabled && (

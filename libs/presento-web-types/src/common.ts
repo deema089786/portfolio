@@ -8,3 +8,5 @@ export type Direction3D =
   | '+z'; // backward
 
 export type Orientation = 'vertical' | 'horizontal';
+
+export type RenderQualityValue = 'low' | 'medium' | 'high' | 'ultra';

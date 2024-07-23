@@ -37,6 +37,12 @@ export const Default: Story = {
       onChange: () => undefined,
     },
 
+    renderQuality: {
+      enabled: true,
+      value: 'high',
+      onChange: () => undefined,
+    },
+
     cameraPosition: {
       enabled: true,
       onChange: () => undefined,
