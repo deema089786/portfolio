@@ -2,9 +2,10 @@ import React from 'react';
 import { Html } from '@react-three/drei';
 
 import {
-  DEFAULT_DEVICE_SCREEN_IMAGE,
   SCENE_SCREEN_VIEW_HTML_CLASS,
   SCENE_SCREEN_VIEW_HTML_ID,
+  DEFAULT_DEVICE_SCREEN_IMAGE_MOBILE,
+  DEFAULT_DEVICE_SCREEN_IMAGE_LAPTOP,
 } from '../constants';
 
 type Device = 'iphone-14' | 'mac-book-pro-m1-14';
@@ -19,23 +20,26 @@ const settings: Record<
     size: { width: number; height: number };
     position: [number, number, number];
     scale: number;
+    defaultImage: string;
   }
 > = {
   'iphone-14': {
     size: { width: 1170, height: 2532 }, //  259 563
     position: [0, 0.01, -0.01],
     scale: 0.2215,
+    defaultImage: DEFAULT_DEVICE_SCREEN_IMAGE_MOBILE,
   },
   'mac-book-pro-m1-14': {
     size: { width: 3024, height: 1964 },
     position: [0, 0, 0],
     scale: 0.00625,
+    defaultImage: DEFAULT_DEVICE_SCREEN_IMAGE_LAPTOP,
   },
 };
 
 export const ScreenHtml: React.FC<ScreenHtmlProps> = (props) => {
   const { device } = props;
-  const { size, position, scale } = settings[device];
+  const { size, position, scale, defaultImage } = settings[device];
 
   return (
     <Html
@@ -59,7 +63,7 @@ export const ScreenHtml: React.FC<ScreenHtmlProps> = (props) => {
           height: '100%',
           backgroundPosition: 'center',
           backgroundSize: 'cover',
-          backgroundImage: `url(${DEFAULT_DEVICE_SCREEN_IMAGE})`,
+          backgroundImage: `url(${defaultImage})`,
         }}
       />
     </Html>
