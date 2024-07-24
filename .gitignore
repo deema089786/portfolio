@@ -46,3 +46,8 @@ Thumbs.db
 out
 
 storybook-static
+
+**/.env
+
+
+docker-volumes

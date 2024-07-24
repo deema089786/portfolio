@@ -1,0 +1,24 @@
+{
+  "name": "presento-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/presento-api/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "presento-api:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "presento-api:build:development"
+        },
+        "production": {
+          "buildTarget": "presento-api:build:production"
+        }
+      }
+    }
+  }
+}

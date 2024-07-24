@@ -15,14 +15,19 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@presento/nest-modules": ["libs/nest-modules/src/index.ts"],
+      "@presento/presento-api-modules": [
+        "libs/presento-api-modules/src/index.ts"
+      ],
+      "@presento/presento-api-types": ["libs/presento-api-types/src/index.ts"],
       "@presento/presento-web-design-system": [
         "libs/presento-web-design-system/src/index.ts"
       ],
       "@presento/presento-web-scenes": [
         "libs/presento-web-scenes/src/index.ts"
       ],
-      "@presento/utils": ["libs/utils/src/index.ts"],
-      "@presento/presento-web-types": ["libs/presento-web-types/src/index.ts"]
+      "@presento/presento-web-types": ["libs/presento-web-types/src/index.ts"],
+      "@presento/utils": ["libs/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
