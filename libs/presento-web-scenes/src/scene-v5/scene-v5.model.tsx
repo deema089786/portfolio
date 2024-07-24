@@ -469,7 +469,7 @@ type GLTFResult = GLTF & {
     screen: THREE.MeshStandardMaterial;
     ['Material.001']: THREE.MeshStandardMaterial;
   };
-  animations: GLTFAction[];
+  // animations: GLTFAction[];
 };
 
 export function SceneModel(props: JSX.IntrinsicElements['group']) {

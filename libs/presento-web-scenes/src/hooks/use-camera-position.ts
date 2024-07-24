@@ -2,7 +2,7 @@ import { MutableRefObject, useCallback, useMemo } from 'react';
 import { RootState } from '@react-three/fiber';
 import { Direction2D } from '@presento/presento-web-types';
 
-const STEP = 0.05 as const;
+const STEP = 0.0025 as const;
 
 type UseCameraPositionParams = {
   rootStateRef: MutableRefObject<RootState | null>;

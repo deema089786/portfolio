@@ -23,11 +23,7 @@ export const SCENES: SceneInfo[] = [
     previewImageSrc: '/images/scene-previews/scene-v2.png',
     title: 'Single Mobile Device',
     description: 'Pretty render with device on the table and waves',
-    tags: [
-      { id: '21', label: 'Mobile', color: 'info' },
-      { id: '22', label: 'IOS', color: 'warning' },
-      { id: '23', label: 'Android', color: 'success' },
-    ],
+    tags: [{ id: '1', label: 'IPhone 14', color: 'info' }],
     component: SceneV2,
   },
   {
@@ -35,11 +31,7 @@ export const SCENES: SceneInfo[] = [
     previewImageSrc: '/images/scene-previews/scene-v3.png',
     title: 'Single Mobile Device',
     description: 'Pretty render with device on the table and waves',
-    tags: [
-      { id: '21', label: 'Mobile', color: 'info' },
-      { id: '22', label: 'IOS', color: 'warning' },
-      { id: '23', label: 'Android', color: 'success' },
-    ],
+    tags: [{ id: '1', label: 'IPhone 14', color: 'info' }],
     component: SceneV3,
   },
   {
@@ -59,11 +51,7 @@ export const SCENES: SceneInfo[] = [
     previewImageSrc: '/images/scene-previews/scene-v5.png',
     title: 'Single Mobile Device',
     description: 'Pretty render with device on the table and waves',
-    tags: [
-      { id: '21', label: 'Mobile', color: 'info' },
-      { id: '22', label: 'IOS', color: 'warning' },
-      { id: '23', label: 'Android', color: 'success' },
-    ],
+    tags: [{ id: '1', label: 'MacBook Pro', color: 'info' }],
     component: SceneV5,
   },
 ] as const;
