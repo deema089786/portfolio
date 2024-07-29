@@ -48,7 +48,7 @@ export class UsersRepository {
 
   async createUser(payload: UsersRepositoryCreateUserPayload): Promise<User> {
     const user = new UserEntity();
-    user.phoneNumber = payload.phoneNumber;
+    user.phoneNumber = payload.phoneNumber || null;
     user.email = payload.email || null;
     await this.usersRepository.save(user);
 

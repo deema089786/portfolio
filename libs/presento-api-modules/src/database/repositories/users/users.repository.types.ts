@@ -1,5 +1,5 @@
 export interface UsersRepositoryCreateUserPayload {
-  phoneNumber: string;
+  phoneNumber?: string | null;
   email?: string | null;
   firstName?: string | null;
   lastName?: string | null;

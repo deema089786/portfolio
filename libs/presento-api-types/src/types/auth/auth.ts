@@ -1,11 +1,16 @@
-// region User Sign Up
 import { JWTAccessToken, JWTRefreshToken } from '../base';
 
-export interface AuthUserSignUpPayload {
-  phoneNumber: string;
+export enum CookiesField {
+  accessToken = 'accessToken',
+  refreshToken = 'refreshToken',
 }
 
-export interface AuthUserSignUpResponse {
+// region Google Login
+export interface AuthLoginByGoogleTokenPayload {
+  token: string;
+}
+
+export interface AuthLoginByGoogleTokenResponse {
   accessToken: JWTAccessToken;
   refreshToken: JWTRefreshToken;
 }
@@ -14,16 +19,9 @@ export interface AuthUserSignUpResponse {
 // region User's Profile
 export interface AuthProfileResponse {
   id: string;
-  phoneNumber: string;
   email: string | null;
   firstName: string | null;
   lastName: string | null;
   image: string | null;
-}
-
-export interface AuthProfileUpdatePayload {
-  email?: string | null;
-  firstName?: string | null;
-  lastName?: string | null;
 }
 // endregion

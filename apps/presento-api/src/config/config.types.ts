@@ -7,6 +7,12 @@ export interface ConfigDatabase {
   synchronize: boolean;
 }
 
+export interface ConfigGoogle {
+  clientId: string;
+  clientSecrete: string;
+}
+
 export interface Config {
   database: ConfigDatabase;
+  google: ConfigGoogle;
 }

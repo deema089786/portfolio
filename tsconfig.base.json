@@ -27,6 +27,7 @@
         "libs/presento-web-scenes/src/index.ts"
       ],
       "@presento/presento-web-types": ["libs/presento-web-types/src/index.ts"],
+      "@presento/presento-web-modules": ["libs/presento-web-modules/src/index.ts"],
       "@presento/utils": ["libs/utils/src/index.ts"]
     }
   },

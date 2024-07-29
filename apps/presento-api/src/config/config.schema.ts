@@ -41,4 +41,18 @@ export const configSchema: Schema<Config> = {
       default: false,
     },
   },
+  google: {
+    clientId: {
+      doc: '',
+      format: String,
+      env: 'GOOGLE_CLIENT_ID',
+      default: null,
+    },
+    clientSecrete: {
+      doc: '',
+      format: String,
+      env: 'GOOGLE_CLIENT_SECRET',
+      default: null,
+    },
+  },
 };
