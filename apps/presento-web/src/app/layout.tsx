@@ -6,7 +6,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import React, { PropsWithChildren } from 'react';
-import { AuthGlobalStorage } from '@presento/presento-web-modules';
+import { AuthApi } from '@presento/presento-web-modules';
 import { cookies } from 'next/headers';
 
 import { ScreenLayout, theme } from '@presento/presento-web-design-system';
@@ -24,7 +24,7 @@ export const metadata = {
 
 const RootLayout: React.FC<PropsWithChildren> = async (props) => {
   const { children } = props;
-  await AuthGlobalStorage.fetchAndSetCurrentUser();
+  const user = await AuthApi.getCurrentUser();
 
   return (
     <html lang="en">
@@ -32,7 +32,7 @@ const RootLayout: React.FC<PropsWithChildren> = async (props) => {
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            <ScreenLayout>{children}</ScreenLayout>
+            <ScreenLayout user={user}>{children}</ScreenLayout>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

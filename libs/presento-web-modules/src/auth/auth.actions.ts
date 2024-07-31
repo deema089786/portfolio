@@ -5,9 +5,7 @@ import { CookiesField } from '@presento/presento-api-types';
 
 import { AuthApi } from './auth.api';
 
-export const signUpWithGoogleToken = async (params: {
-  token: string;
-}): Promise<{ success: boolean }> => {
+export const signUpWithGoogleToken = async (params: { token: string }) => {
   try {
     const data = await AuthApi.loginByGoogleToken({
       token: params.token,
@@ -27,9 +25,16 @@ export const signUpWithGoogleToken = async (params: {
       httpOnly: true,
       expires: oneDay,
     });
-    return { success: true };
   } catch (e) {
     console.error(e);
-    return { success: false };
+  }
+};
+
+export const logout = async () => {
+  try {
+    cookies().delete({ name: CookiesField.accessToken });
+    cookies().delete({ name: CookiesField.refreshToken });
+  } catch (e) {
+    console.error(e);
   }
 };

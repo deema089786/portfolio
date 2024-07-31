@@ -64,7 +64,6 @@ export class AuthService {
     if (!ticketPayload.email)
       throw new Error('TicketPayload does not have "email" field');
 
-    console.log(ticketPayload);
     let user = await this.usersRepository.getUserBy({
       email: ticketPayload.email,
     });

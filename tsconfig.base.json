@@ -28,7 +28,8 @@
       ],
       "@presento/presento-web-types": ["libs/presento-web-types/src/index.ts"],
       "@presento/presento-web-modules": ["libs/presento-web-modules/src/index.ts"],
-      "@presento/utils": ["libs/utils/src/index.ts"]
+      "@presento/utils": ["libs/utils/src/index.ts"],
+      "@presento/next-utils": ["libs/next-utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
