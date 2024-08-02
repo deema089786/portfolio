@@ -15,6 +15,8 @@ export const middleware = async (request: NextRequest) => {
   if (!isRouteAccessGranted) {
     return NextResponse.redirect(new URL('/', request.url));
   }
+
+  // Add more middlewares here
 };
 
 const protectedRoutes: {
