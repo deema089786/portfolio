@@ -11,3 +11,12 @@ export interface UserProfile extends Timestamp {
   userId: string;
   user: User | null;
 }
+
+// export type UpdateProfilePayload = {
+//   firstName?: string | null;
+//   lastName?: string | null;
+// };
+//
+// export type UpdateProfileResponse = {
+//   success: boolean;
+// };

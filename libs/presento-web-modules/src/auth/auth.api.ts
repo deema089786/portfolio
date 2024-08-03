@@ -2,6 +2,8 @@ import {
   AuthLoginByGoogleTokenPayload,
   AuthLoginByGoogleTokenResponse,
   AuthProfileResponse,
+  // UpdateProfilePayload,
+  // UpdateProfileResponse,
 } from '@presento/presento-api-types';
 import { ApiInstance } from '@presento/utils';
 
@@ -36,6 +38,21 @@ export class AuthApi {
       };
     } catch {
       return null;
+    }
+  };
+
+  static updateProfile = async (
+    payload: any,
+  ): Promise<{ success: boolean }> => {
+    try {
+      const { data } = await ApiInstance.request<any>({
+        url: '/auth/profile',
+        method: 'PATCH',
+        data: payload,
+      });
+      return { success: data.success };
+    } catch {
+      return { success: false };
     }
   };
 }

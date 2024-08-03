@@ -15,17 +15,15 @@ import { defaultEditProfileFormValues } from './edit-profile-form.constants';
 import { editProfileFormSchema } from './edit-profile-form.validation';
 
 export const EditProfileForm: React.FC<EditProfileFormProps> = (props) => {
-  const { initialValues } = props;
+  const { initialValues, onSubmit } = props;
+
   const { register, handleSubmit } = useFormik<EditProfileFormValues>({
     validationSchema: toFormikValidationSchema(editProfileFormSchema),
     initialValues: {
       ...defaultEditProfileFormValues,
       ...initialValues,
     },
-    onSubmit: async (values) => {
-      // Do something with form data
-      console.log(values);
-    },
+    onSubmit: onSubmit,
   });
 
   return (

@@ -1,4 +1,4 @@
-export type ApiInstanceRequestMethod = 'POST' | 'GET';
+export type ApiInstanceRequestMethod = 'POST' | 'GET' | 'PATCH';
 
 export interface IApiInstanceRequestParams {
   url: string;
