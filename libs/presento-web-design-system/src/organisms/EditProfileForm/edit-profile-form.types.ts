@@ -4,7 +4,4 @@ import { editProfileFormSchema } from './edit-profile-form.validation';
 
 export type EditProfileFormValues = z.infer<typeof editProfileFormSchema>;
 
-export type EditProfileFormProps = {
-  initialValues?: Partial<EditProfileFormValues>;
-  onSubmit?(values: EditProfileFormValues): Promise<void>;
-};
+export type EditProfileFormProps = NonNullable<unknown>;

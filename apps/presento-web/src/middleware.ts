@@ -1,14 +1,6 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import { AuthApi } from '@presento/presento-web-modules';
-import { cookies } from 'next/headers';
-
-import { ApiInstance } from '@presento/utils';
-
-ApiInstance.setConfig({
-  baseUrl: process.env.NEXT_PUBLIC_API_URL,
-  cookiesStringGetter: () => cookies().toString(),
-});
+import { getUser } from '@presento/presento-web-modules/user';
 
 export const middleware = async (request: NextRequest) => {
   const isRouteAccessGranted = await getIsRouteAccessGranted(request);
@@ -40,7 +32,7 @@ const getIsRouteAccessGranted = async (
     return true;
   }
 
-  const user = await AuthApi.getCurrentUser();
+  const user = await getUser();
   if (isRequiresAuthenticationRoute && !user) return false;
   if (isForbiddenAuthenticationRoute && user) return false;
 

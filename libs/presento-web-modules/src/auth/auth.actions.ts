@@ -3,13 +3,16 @@
 import { cookies } from 'next/headers';
 import { CookiesField } from '@presento/presento-api-types';
 
-import { AuthApi } from './auth.api';
+import { getApiModule } from '../api';
+
+const apiModule = getApiModule();
 
 export const signUpWithGoogleToken = async (params: { token: string }) => {
   try {
-    const data = await AuthApi.loginByGoogleToken({
+    const data = await apiModule.auth.loginByGoogleToken({
       token: params.token,
     });
+    console.log({ data });
     const oneDay = Date.now() + 1000 * 60 * 60 * 24;
     cookies().set({
       name: CookiesField.accessToken,

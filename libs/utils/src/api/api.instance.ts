@@ -17,10 +17,14 @@ export interface ApiInstanceSetConfigParams {
 }
 
 export class ApiInstance {
-  private static baseUrl: string | null = null;
-  private static cookiesStringGetter: CookiesStringGetter | null = null;
+  private baseUrl: string | null = null;
+  private cookiesStringGetter: CookiesStringGetter | null = null;
 
-  static async request<ResponseData>(
+  constructor(params: ApiInstanceSetConfigParams) {
+    this.setConfig(params);
+  }
+
+  async request<ResponseData>(
     params: IApiInstanceRequestParams,
   ): Promise<{ data: ResponseData; headers: Headers }> {
     const {
@@ -33,18 +37,24 @@ export class ApiInstance {
     } = params;
     const baseUrl = instanceConfig?.baseUrl ?? this.baseUrl;
 
+    const requestHeaders: RequestInit['headers'] = {
+      'Content-Type': 'application/json',
+      ...headers,
+    };
+
+    if (this.cookiesStringGetter) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      requestHeaders['Cookie'] = this.cookiesStringGetter
+        ? this.cookiesStringGetter() || ''
+        : '';
+    }
+
     const requestInit: RequestInit = {
       credentials: 'include',
       cache,
       method,
-      headers: {
-        // Cookie: cookies().toString(),
-        Cookie: this.cookiesStringGetter
-          ? this.cookiesStringGetter() || ''
-          : '',
-        'Content-Type': 'application/json',
-        ...headers,
-      },
+      headers: requestHeaders,
     };
 
     if (data) requestInit.body = JSON.stringify(data);
@@ -62,7 +72,7 @@ export class ApiInstance {
     return { data: responseData, headers: res.headers };
   }
 
-  static setConfig(params: ApiInstanceSetConfigParams) {
+  setConfig(params: ApiInstanceSetConfigParams) {
     if (params.baseUrl !== undefined) {
       this.baseUrl = params.baseUrl;
     }

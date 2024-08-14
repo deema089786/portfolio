@@ -25,8 +25,14 @@
       "@presento/presento-web-design-system": [
         "libs/presento-web-design-system/src/index.ts"
       ],
-      "@presento/presento-web-modules": [
-        "libs/presento-web-modules/src/index.ts"
+      "@presento/presento-web-modules/auth": [
+        "libs/presento-web-modules/src/auth/index.ts"
+      ],
+      "@presento/presento-web-modules/user": [
+        "libs/presento-web-modules/src/user/index.ts"
+      ],
+      "@presento/presento-web-modules/user/client": [
+        "libs/presento-web-modules/src/user/client/index.ts"
       ],
       "@presento/presento-web-scenes": [
         "libs/presento-web-scenes/src/index.ts"

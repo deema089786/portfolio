@@ -1,6 +1,6 @@
 import React from 'react';
 import * as process from 'node:process';
-import { AuthActions } from '@presento/presento-web-modules';
+import { AuthActions } from '@presento/presento-web-modules/auth';
 import { redirect } from 'next/navigation';
 
 import { Breadcrumbs, SignUpForm } from '@presento/presento-web-design-system';

@@ -6,16 +6,9 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import React, { PropsWithChildren } from 'react';
-import { AuthApi } from '@presento/presento-web-modules';
-import { cookies } from 'next/headers';
+import { getUser } from '@presento/presento-web-modules/user';
 
 import { ScreenLayout, theme } from '@presento/presento-web-design-system';
-import { ApiInstance } from '@presento/utils';
-
-ApiInstance.setConfig({
-  baseUrl: process.env.NEXT_PUBLIC_API_URL,
-  cookiesStringGetter: () => cookies().toString(),
-});
 
 export const metadata = {
   title: 'Welcome to presento-web',
@@ -24,7 +17,8 @@ export const metadata = {
 
 const RootLayout: React.FC<PropsWithChildren> = async (props) => {
   const { children } = props;
-  const user = await AuthApi.getCurrentUser();
+
+  const user = await getUser();
 
   return (
     <html lang="en">

@@ -48,7 +48,7 @@ export const ScreenHeader: React.FC<ScreenHeaderProps> = (props) => {
           {user ? (
             <Button
               component={Link}
-              href="/profile"
+              href="/client/profile"
               size="small"
               variant="outlined"
               endIcon={
