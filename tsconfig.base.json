@@ -15,7 +15,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@portfolio-web-design-system": ["libs/portfolio-web-design-system/src"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
