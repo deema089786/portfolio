@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body style={{ backgroundColor: '#333333' }}>
         <AppRouterCacheProvider>
           <ThemeProvider theme={darkTheme}>{children}</ThemeProvider>
         </AppRouterCacheProvider>

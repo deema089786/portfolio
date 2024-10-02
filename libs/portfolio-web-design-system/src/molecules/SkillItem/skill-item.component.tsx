@@ -47,23 +47,25 @@ const skillIcons: Record<SkillItemType, string> = {
   capacitor: capacitorIcon.src as string,
 };
 
+const imageSize = 60;
+
 export const SkillItem: React.FC<SkillItemProps> = (props) => {
   const { type } = props;
   return (
     <Paper>
       <Stack
-        height={140}
+        height={110}
         spacing={1}
         alignItems="center"
         justifyContent="center"
       >
         <Image
           src={skillIcons[type]}
-          width={60}
-          height={60}
+          width={imageSize}
+          height={imageSize}
           alt={skillLabels[type]}
         />
-        <Typography align="center" fontWeight="bold">
+        <Typography align="center" variant="caption" fontWeight="bold">
           {skillLabels[type]}
         </Typography>
       </Stack>

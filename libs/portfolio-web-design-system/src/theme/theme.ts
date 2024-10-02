@@ -1,6 +1,10 @@
 'use client';
 
-import { createTheme, ThemeOptions } from '@mui/material/styles';
+import {
+  createTheme,
+  ThemeOptions,
+  responsiveFontSizes,
+} from '@mui/material/styles';
 import _merge from 'lodash/merge';
 
 const defaultThemeOptions: ThemeOptions = {
@@ -107,12 +111,14 @@ const darkThemeOptions: ThemeOptions = {
   // },
 };
 
-export const lightTheme = createTheme(
-  _merge(defaultThemeOptions, lightThemeOptions),
+export const lightTheme = responsiveFontSizes(
+  createTheme(_merge(defaultThemeOptions, lightThemeOptions)),
 );
-export const darkTheme = createTheme({
-  colorSchemes: {
-    dark: true,
-  },
-  ..._merge(defaultThemeOptions, darkThemeOptions),
-});
+export const darkTheme = responsiveFontSizes(
+  createTheme({
+    colorSchemes: {
+      dark: true,
+    },
+    ..._merge(defaultThemeOptions, darkThemeOptions),
+  }),
+);

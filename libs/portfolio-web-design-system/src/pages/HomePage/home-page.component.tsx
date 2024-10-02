@@ -11,7 +11,7 @@ import {
 export const HomePage: React.FC = () => {
   return (
     <ScreenLayout>
-      <Stack spacing={3}>
+      <Stack spacing={4}>
         <WelcomeSection />
         <SkillsSection />
         <ServicesSection />
