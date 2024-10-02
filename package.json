@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-      "build": "nx run portfolio-web:build",
-      "start": "nx run portfolio-web:start"
+    "build": "nx run portfolio-web:build",
+    "start": "nx run portfolio-web:start"
   },
   "private": true,
   "devDependencies": {
