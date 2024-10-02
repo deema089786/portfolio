@@ -2,7 +2,12 @@
   "name": "@presento/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "scripts": {
+      "build": "nx run portfolio-web:build",
+      "start": "nx run portfolio-web:start"
+    }
+  },
   "private": true,
   "devDependencies": {
     "@nx/eslint": "19.1.2",

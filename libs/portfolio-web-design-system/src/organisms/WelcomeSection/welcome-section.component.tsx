@@ -15,7 +15,7 @@ export const WelcomeSection: React.FC = () => {
         backgroundPosition: 'right bottom',
         backgroundSize: '850px',
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-expect-error
+        // @ts-ignore
         backgroundImage: `url(${portraitImage.src})`,
       }}
     >

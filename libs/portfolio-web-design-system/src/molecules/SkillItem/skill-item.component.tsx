@@ -37,14 +37,14 @@ const skillLabels: Record<SkillItemType, string> = {
 };
 
 const skillIcons: Record<SkillItemType, string> = {
-  ts: tsIcon,
-  js: jsIcon,
-  next: nextIcon,
-  node: nodeIcon,
-  nest: nestIcon,
-  mui: muiIcon,
-  react: reactIcon,
-  capacitor: capacitorIcon,
+  ts: tsIcon.src as string,
+  js: jsIcon.src as string,
+  next: nextIcon.src as string,
+  node: nodeIcon.src as string,
+  nest: nestIcon.src as string,
+  mui: muiIcon.src as string,
+  react: reactIcon.src as string,
+  capacitor: capacitorIcon.src as string,
 };
 
 export const SkillItem: React.FC<SkillItemProps> = (props) => {
