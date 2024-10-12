@@ -23,7 +23,6 @@ export const PortfolioProjectSlide: React.FC<PortfolioProjectSlideProps> = (
       component={Paper}
       direction="row"
       justifyContent="space-between"
-      spacing={1}
       overflow="hidden"
     >
       <Stack justifyContent="space-between" p={1}>
