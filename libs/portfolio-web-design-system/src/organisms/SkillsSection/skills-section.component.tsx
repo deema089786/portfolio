@@ -1,20 +1,12 @@
 import React from 'react';
-import { Grid2 as Grid, Box, Typography } from '@mui/material';
+import { Grid2 as Grid, Box } from '@mui/material';
 
-import { SkillItem } from '../../molecules';
+import { SectionTitle, SkillItem } from '../../molecules';
 
 export const SkillsSection: React.FC = () => {
   return (
     <Box>
-      <Typography
-        variant="h4"
-        component="h2"
-        color="textPrimary"
-        gutterBottom
-        sx={{ pl: 1 }}
-      >
-        Technologies I use
-      </Typography>
+      <SectionTitle>Technologies I use</SectionTitle>
       <Grid container spacing={1}>
         <Grid size={{ xs: 3, md: 3, lg: 'grow' }}>
           <SkillItem type="ts" />

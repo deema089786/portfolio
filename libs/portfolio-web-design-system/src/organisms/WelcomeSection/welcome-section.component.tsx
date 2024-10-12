@@ -50,7 +50,7 @@ export const WelcomeSection: React.FC = () => {
           I'm Dmytro&nbsp;Kotielevskyi
         </Typography>
         <Typography
-          component="h2"
+          component="p"
           variant="h5"
           color="textPrimary"
           sx={{ pl: 1 }}

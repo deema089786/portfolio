@@ -37,13 +37,29 @@ const skillLabels: Record<SkillItemType, string> = {
 };
 
 const skillIcons: Record<SkillItemType, string> = {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   ts: tsIcon.src as string,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   js: jsIcon.src as string,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   next: nextIcon.src as string,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   node: nodeIcon.src as string,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   nest: nestIcon.src as string,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   mui: muiIcon.src as string,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   react: reactIcon.src as string,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   capacitor: capacitorIcon.src as string,
 };
 

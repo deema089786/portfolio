@@ -3,6 +3,7 @@ import { Stack } from '@mui/material';
 
 import { ScreenLayout } from '../../layout';
 import {
+  PortfolioSection,
   ServicesSection,
   SkillsSection,
   WelcomeSection,
@@ -14,6 +15,7 @@ export const HomePage: React.FC = () => {
       <Stack spacing={4}>
         <WelcomeSection />
         <SkillsSection />
+        <PortfolioSection />
         <ServicesSection />
       </Stack>
     </ScreenLayout>

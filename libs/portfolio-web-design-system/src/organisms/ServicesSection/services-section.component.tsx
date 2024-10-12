@@ -10,19 +10,12 @@ import {
 import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
 
 import { services } from './services-section.constants';
+import { SectionTitle } from '../../molecules';
 
 export const ServicesSection: React.FC = () => {
   return (
     <Box>
-      <Typography
-        variant="h4"
-        component="h2"
-        color="textPrimary"
-        gutterBottom
-        sx={{ pl: 1 }}
-      >
-        Services I provide
-      </Typography>
+      <SectionTitle>Services I provide</SectionTitle>
       {services.map((service) => (
         <Accordion>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
