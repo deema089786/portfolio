@@ -5,6 +5,7 @@ import {
   ArrowForward as ProjectDetailsIcon,
 } from '@mui/icons-material';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export type PortfolioProjectSlideProps = {
   name: string;
@@ -17,7 +18,7 @@ export type PortfolioProjectSlideProps = {
 export const PortfolioProjectSlide: React.FC<PortfolioProjectSlideProps> = (
   props: PortfolioProjectSlideProps,
 ) => {
-  const { name, description, imageSrc } = props;
+  const { name, description, imageSrc, githubUrl, projectUrl } = props;
   return (
     <Stack
       component={Paper}
@@ -38,10 +39,21 @@ export const PortfolioProjectSlide: React.FC<PortfolioProjectSlideProps> = (
           justifyContent="space-between"
           spacing={1}
         >
-          <Button startIcon={<GitHubIcon />} variant="outlined">
+          <Button
+            startIcon={<GitHubIcon />}
+            variant="outlined"
+            component="a"
+            href={githubUrl}
+            target="_blank"
+          >
             Source code
           </Button>
-          <Button endIcon={<ProjectDetailsIcon />} variant="outlined">
+          <Button
+            endIcon={<ProjectDetailsIcon />}
+            variant="outlined"
+            component={Link}
+            href={projectUrl}
+          >
             Learn more
           </Button>
         </Stack>
